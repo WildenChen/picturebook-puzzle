@@ -856,7 +856,7 @@ footer {
 /* ========================================================
    響應式設計：手機與平板優先適配 (Responsive for Mobile)
    ======================================================== */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .shell {
     padding: 14px 12px 24px;
   }
@@ -1056,3 +1056,37 @@ footer {
   filter: drop-shadow(0 0 16px rgba(255, 220, 130, 0.8));
 }
 
+
+/* Portrait tablet and phone: the sticker tray sits immediately below the scene. */
+@media (max-width: 900px) {
+  .book > .tray {
+    border: 0;
+    border-bottom: 1px solid #cbb48e;
+    border-radius: 0;
+    padding: 12px 14px;
+    background: #303148;
+  }
+  .book > .tray .tray-head h3 { font-size: 17px; margin-top: 3px; }
+  .book > .tray .tray-head .section-label { font-size: 9px; }
+  .book > .tray .tray-sub { margin: 7px 0 10px; }
+  .book > .tray .stickers { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
+  .book > .tray .sticker { padding: 6px 1px; }
+  .book > .tray .sticker-card { width: 36px; height: 36px; }
+  .book > .tray .sticker-thumb { width: 34px; height: 34px; }
+  .book > .tray .sticker span:last-child { font-size: 10px; margin-top: 4px; }
+  .book > .tray .tray-footer { display: none; }
+  .book > .tray .progress-head { padding-top: 9px; font-size: 11px; }
+  .book > .tray .progress { margin-top: 6px; }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  .shell { max-width: 790px; padding: 22px 18px; }
+  .illustration { height: 310px; }
+  .book-copy { padding: 24px 26px 12px; }
+  .story { font-size: 16px; }
+  .book > .tray .sticker-card { width: 55px; height: 55px; }
+  .book > .tray .sticker-thumb { width: 51px; height: 51px; }
+}
+@media (max-width: 390px) {
+  .book > .tray .sticker-card { width: 30px; height: 30px; }
+  .book > .tray .sticker-thumb { width: 28px; height: 28px; }
+}
