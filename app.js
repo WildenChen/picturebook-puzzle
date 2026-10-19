@@ -290,18 +290,6 @@ function render() {
     `<span class="dot ${i === p ? "active" : ""}"></span>`
   ).join("");
 
-  // 空格按鈕
-  $("slots").innerHTML = data.labels.map((label, i) => {
-    const selected = STICKERS.find(s => s.id === entry(p, i));
-    const thumb = selected
-      ? `<img src="${selected.src}" class="slot-thumb" alt="${selected.name}">`
-      : `<span class="symbol">＋</span>`;
-    return `<button class="slot ${selected ? "filled" : ""}" data-slot="${i}" aria-label="${label}，${selected ? selected.name : "未放置"}">
-      <div class="slot-visual">${thumb}</div>
-      <small>${selected ? selected.name : label}</small>
-    </button>`;
-  }).join("");
-
   // 貼紙匣（Stickers tray）
   $("stickers").innerHTML = STICKERS.map(s => {
     const isSelected = state.selected === s.id;
@@ -336,33 +324,6 @@ function render() {
   } else {
     result.textContent = "";
   }
-
-  // 事件綁定：下方故事槽位的點擊與拖放
-  document.querySelectorAll(".slot").forEach(el => {
-    const i = Number(el.dataset.slot);
-    el.addEventListener("click", () => {
-      if (state.selected) {
-        put(i, state.selected);
-      } else if (entry(p, i)) {
-        delete state.placements[`${p}-${i}`];
-        delete state.checked[p];
-        saved();
-        render();
-      }
-    });
-
-    el.addEventListener("dragover", e => {
-      e.preventDefault();
-      el.classList.add("dragover");
-    });
-    el.addEventListener("dragleave", () => el.classList.remove("dragover"));
-    el.addEventListener("drop", e => {
-      e.preventDefault();
-      el.classList.remove("dragover");
-      const id = e.dataTransfer.getData("text/plain");
-      if (id) put(i, id);
-    });
-  });
 
   // 事件綁定：貼紙點擊、HTML5 Drag、以及手機觸控拖曳
   document.querySelectorAll(".sticker").forEach(el => {

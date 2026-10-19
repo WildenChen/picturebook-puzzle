@@ -1090,3 +1090,13 @@ footer {
   .book > .tray .sticker-card { width: 30px; height: 30px; }
   .book > .tray .sticker-thumb { width: 28px; height: 28px; }
 }
+
+/* The story is a dedicated panel above the interactive illustration. */
+.book-copy{flex:0 0 auto;padding:19px 22px 15px;background:#fbf5e8;border-bottom:1px solid #dfcfb1}
+.book-copy h2{margin:6px 0 8px}
+.book-copy .story{min-height:0}
+.book-copy .hint{margin:9px 0 0}
+@media(max-width:900px){
+ .book-copy{padding:16px 14px 12px}
+ .book-copy h2{font-size:22px}
+}
