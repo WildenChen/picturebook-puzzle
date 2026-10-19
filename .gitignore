@@ -1,0 +1,6 @@
+.env
+.env.*
+!.env.local.example
+art-drafts/
+__pycache__/
+*.pyc
