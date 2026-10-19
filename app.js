@@ -163,6 +163,9 @@ function renderScene(p, data) {
   const item0 = STICKERS.find(s => s.id === s0Id);
   const item1 = STICKERS.find(s => s.id === s1Id);
 
+  // Tie page-specific art placement to the current background.
+  $("illustration").dataset.page = String(p + 1);
+
   // 1. 背景層
   $("stageBg").style.backgroundImage = `url('${data.bg}')`;
 
