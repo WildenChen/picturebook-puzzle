@@ -1035,3 +1035,24 @@ footer {
   }
 }
 
+
+/* 拖曳進上方插畫舞台時的金色光暈回饋 */
+.illustration.stage-dragover {
+  box-shadow: inset 0 0 0 3px #f5d48b, inset 0 0 30px rgba(255, 230, 160, 0.4);
+}
+
+.stage-placeholder.dragover {
+  transform: scale(1.08);
+}
+
+.stage-placeholder.dragover .placeholder-halo {
+  border-color: #ffd479;
+  background: radial-gradient(circle, rgba(255, 230, 160, 0.4) 0%, transparent 75%);
+  box-shadow: 0 0 20px rgba(255, 215, 120, 0.6);
+}
+
+.stage-entity.dragover {
+  transform: translateY(-8px) scale(1.06);
+  filter: drop-shadow(0 0 16px rgba(255, 220, 130, 0.8));
+}
+

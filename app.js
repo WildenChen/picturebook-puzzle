@@ -18,12 +18,10 @@ const PAGES = [
     labels: ["誰來到森林？", "帶著什麼？"],
     bg: "assets/scene/bg-page-1.svg",
     fg: "assets/scene/fg-page-1.svg",
-    // 預設與錯誤貼紙的位置（百分比 layout，適應手機與桌面）
     slotsLayout: [
       { defaultClass: "pos-page1-actor", defaultLabel: "造訪森林的旅人" },
       { defaultClass: "pos-page1-prop", defaultLabel: "攜帶的物件" }
     ],
-    // 針對特定貼紙做更具故事氛圍的角色專屬微調
     customPlacement: {
       "0-girl": { className: "actor-girl-p1" },
       "0-fox": { className: "actor-fox-p1" },
@@ -47,12 +45,12 @@ const PAGES = [
       { defaultClass: "pos-page2-prop", defaultLabel: "樹洞中的寶物" }
     ],
     customPlacement: {
-      "0-owl": { className: "actor-owl-p2" }, // 棲息於樹枝高處
-      "0-fox": { className: "actor-fox-p2" }, // 坐在樹根旁
-      "0-girl": { className: "actor-girl-p2" }, // 站在樹洞前探尋
-      "1-key": { className: "prop-key-p2" }, // 在樹洞中散發金光
-      "1-lantern": { className: "prop-lantern-p2" }, // 掛在樹洞旁
-      "1-book": { className: "prop-book-p2" } // 倚在樹根處
+      "0-owl": { className: "actor-owl-p2" },
+      "0-fox": { className: "actor-fox-p2" },
+      "0-girl": { className: "actor-girl-p2" },
+      "1-key": { className: "prop-key-p2" },
+      "1-lantern": { className: "prop-lantern-p2" },
+      "1-book": { className: "prop-book-p2" }
     },
     story: v => `古老的樹洞旁，${v[0] || "一個影子"}靜靜等候。牠把${v[1] || "一樣寶物"}交給旅人，請她記住回家的路。`
   },
@@ -69,10 +67,10 @@ const PAGES = [
       { defaultClass: "pos-page3-prop", defaultLabel: "祭壇上的秘密" }
     ],
     customPlacement: {
-      "0-girl": { className: "actor-girl-p3" }, // 來到石台前
+      "0-girl": { className: "actor-girl-p3" },
       "0-fox": { className: "actor-fox-p3" },
       "0-owl": { className: "actor-owl-p3" },
-      "1-book": { className: "prop-book-p3" }, // 翻開在月光石台中央
+      "1-book": { className: "prop-book-p3" },
       "1-lantern": { className: "prop-lantern-p3" },
       "1-key": { className: "prop-key-p3" }
     },
@@ -121,6 +119,13 @@ function put(slot, id) {
   render();
 }
 
+// 根據游標或觸控點座標，智慧判定落於場景的第幾個插槽（左側角色 slot 0，右側道具 slot 1）
+function resolveStageSlot(clientX, stageEl) {
+  const rect = stageEl.getBoundingClientRect();
+  const relX = (clientX - rect.left) / rect.width;
+  return relX < 0.5 ? 0 : 1;
+}
+
 function renderScene(p, data) {
   const s0Id = entry(p, 0);
   const s1Id = entry(p, 1);
@@ -138,7 +143,6 @@ function renderScene(p, data) {
 
   const renderSlotActor = (slotIdx, item) => {
     if (!item) {
-      // 繪本風空白預留位（柔和引導框，而非突兀的大加號）
       const layout = data.slotsLayout[slotIdx];
       return `<div class="stage-placeholder ${layout.defaultClass}" data-slot="${slotIdx}">
         <div class="placeholder-halo"></div>
@@ -150,7 +154,7 @@ function renderScene(p, data) {
     const custom = data.customPlacement[customKey] || {};
     const posClass = custom.className || data.slotsLayout[slotIdx].defaultClass;
 
-    return `<div class="stage-entity ${posClass} entity-${item.id}" data-slot="${slotIdx}">
+    return `<div class="stage-entity ${posClass} entity-${item.id}" data-slot="${slotIdx}" title="點擊取下貼紙">
       <img src="${item.src}" alt="${item.name}" class="entity-illustration" draggable="false" />
       <span class="entity-badge">${item.name}</span>
     </div>`;
@@ -160,31 +164,105 @@ function renderScene(p, data) {
   actorsHtml += renderSlotActor(1, item1);
   $("stageActors").innerHTML = actorsHtml;
 
-  // 4. 點選場景中的貼紙可直接取下（直覺操作）
+  // 4. 場景實體的互動：點擊取下，或接受拖曳置換
   document.querySelectorAll(".stage-entity").forEach(el => {
-    el.addEventListener("click", () => {
-      const slot = Number(el.dataset.slot);
-      delete state.placements[`${p}-${slot}`];
-      delete state.checked[p];
-      saved();
-      render();
+    const slot = Number(el.dataset.slot);
+
+    // 點擊取下
+    el.addEventListener("click", e => {
+      e.stopPropagation();
+      if (state.selected) {
+        // 若手上已有選取的貼紙，直接替換
+        put(slot, state.selected);
+      } else {
+        delete state.placements[`${p}-${slot}`];
+        delete state.checked[p];
+        saved();
+        render();
+      }
+    });
+
+    // 拖曳置換
+    el.addEventListener("dragover", e => {
+      e.preventDefault();
+      e.stopPropagation();
+      el.classList.add("dragover");
+    });
+    el.addEventListener("dragleave", e => {
+      e.stopPropagation();
+      el.classList.remove("dragover");
+    });
+    el.addEventListener("drop", e => {
+      e.preventDefault();
+      e.stopPropagation();
+      el.classList.remove("dragover");
+      const id = e.dataTransfer.getData("text/plain");
+      if (id) put(slot, id);
     });
   });
 
-  // 點選空白插畫預留位也可以放置選取的貼紙
+  // 空白插畫預留位的點選與拖放
   document.querySelectorAll(".stage-placeholder").forEach(el => {
-    el.addEventListener("click", () => {
-      const slot = Number(el.dataset.slot);
+    const slot = Number(el.dataset.slot);
+
+    el.addEventListener("click", e => {
+      e.stopPropagation();
       if (state.selected) {
         put(slot, state.selected);
       }
     });
+
+    el.addEventListener("dragover", e => {
+      e.preventDefault();
+      e.stopPropagation();
+      el.classList.add("dragover");
+    });
+    el.addEventListener("dragleave", e => {
+      e.stopPropagation();
+      el.classList.remove("dragover");
+    });
+    el.addEventListener("drop", e => {
+      e.preventDefault();
+      e.stopPropagation();
+      el.classList.remove("dragover");
+      const id = e.dataTransfer.getData("text/plain");
+      if (id) put(slot, id);
+    });
   });
 
-  // 5. 提示訊息（若尚未放置任何貼紙）
+  // 5. 整座上方插畫舞台也能直接作為拖放區（直覺拖進森林任意處）
+  const stage = $("illustration");
+  stage.ondragover = e => {
+    e.preventDefault();
+    stage.classList.add("stage-dragover");
+  };
+  stage.ondragleave = e => {
+    if (!stage.contains(e.relatedTarget)) {
+      stage.classList.remove("stage-dragover");
+    }
+  };
+  stage.ondrop = e => {
+    e.preventDefault();
+    stage.classList.remove("stage-dragover");
+    const id = e.dataTransfer.getData("text/plain");
+    if (!id) return;
+
+    // 若直接落在特定的 slot 或 placeholder 上，由該子元素的 drop 處理
+    const directTarget = e.target.closest("[data-slot]");
+    if (directTarget) {
+      put(Number(directTarget.dataset.slot), id);
+      return;
+    }
+
+    // 否則依據在舞台中的左右位置判定角色（左）或物件（右）
+    const slot = resolveStageSlot(e.clientX, stage);
+    put(slot, id);
+  };
+
+  // 6. 提示訊息（若尚未放置任何貼紙）
   const stageMsg = $("stageMessage");
   if (!item0 && !item1) {
-    stageMsg.innerHTML = '<span class="stage-tip">✦ 點選或拖曳貼紙，讓角色與物件融入森林插畫</span>';
+    stageMsg.innerHTML = '<span class="stage-tip">✦ 可直接拖曳貼紙到上方森林插畫中</span>';
     stageMsg.style.display = "block";
   } else {
     stageMsg.style.display = "none";
@@ -259,7 +337,7 @@ function render() {
     result.textContent = "";
   }
 
-  // 事件綁定：故事槽位的點擊與拖放
+  // 事件綁定：下方故事槽位的點擊與拖放
   document.querySelectorAll(".slot").forEach(el => {
     const i = Number(el.dataset.slot);
     el.addEventListener("click", () => {
@@ -280,11 +358,13 @@ function render() {
     el.addEventListener("dragleave", () => el.classList.remove("dragover"));
     el.addEventListener("drop", e => {
       e.preventDefault();
-      put(i, e.dataTransfer.getData("text/plain"));
+      el.classList.remove("dragover");
+      const id = e.dataTransfer.getData("text/plain");
+      if (id) put(i, id);
     });
   });
 
-  // 事件綁定：貼紙的點擊、HTML5 Drag、觸控指引
+  // 事件綁定：貼紙點擊、HTML5 Drag、以及手機觸控拖曳
   document.querySelectorAll(".sticker").forEach(el => {
     el.addEventListener("click", () => {
       state.selected = state.selected === el.dataset.id ? null : el.dataset.id;
@@ -313,9 +393,19 @@ function render() {
     el.addEventListener("pointerup", e => {
       if (x === undefined) return;
       if (moved) {
-        const target = document.elementFromPoint(e.clientX, e.clientY)?.closest(".slot, .stage-placeholder");
-        if (target) {
-          put(Number(target.dataset.slot), el.dataset.id);
+        const touchedEl = document.elementFromPoint(e.clientX, e.clientY);
+        
+        // 情況 A：落在帶有 data-slot 的元素上（下方空格、插畫中的預留位、或已存在的角色實體）
+        const directTarget = touchedEl?.closest("[data-slot]");
+        if (directTarget) {
+          put(Number(directTarget.dataset.slot), el.dataset.id);
+        } else {
+          // 情況 B：落在上方插畫舞台本體或其子層內（直覺拖進森林）
+          const stageTarget = touchedEl?.closest("#illustration");
+          if (stageTarget) {
+            const slot = resolveStageSlot(e.clientX, stageTarget);
+            put(slot, el.dataset.id);
+          }
         }
       }
       x = undefined;
