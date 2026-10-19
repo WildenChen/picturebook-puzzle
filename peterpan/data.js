@@ -12,187 +12,218 @@ window.PETER_STICKERS = [
     "id": "peter",
     "name": "彼得潘",
     "kind": "character",
-    "src": "./peterpan/assets/sprites/peter.webp"
+    "src": "./peterpan/assets/sprites/peter.webp",
+    "storyLabel": "彼得潘"
   },
   {
     "id": "wendy",
     "name": "溫蒂",
     "kind": "character",
-    "src": "./peterpan/assets/sprites/wendy.webp"
+    "src": "./peterpan/assets/sprites/wendy.webp",
+    "storyLabel": "溫蒂"
   },
   {
     "id": "john",
     "name": "約翰",
     "kind": "character",
-    "src": "./peterpan/assets/sprites/john.webp"
+    "src": "./peterpan/assets/sprites/john.webp",
+    "storyLabel": "約翰"
   },
   {
     "id": "michael",
     "name": "麥可",
     "kind": "character",
-    "src": "./peterpan/assets/sprites/michael.webp"
+    "src": "./peterpan/assets/sprites/michael.webp",
+    "storyLabel": "麥可"
   },
   {
     "id": "tinker",
     "name": "叮噹",
     "kind": "character",
-    "src": "./peterpan/assets/sprites/tinker.webp"
+    "src": "./peterpan/assets/sprites/tinker.webp",
+    "storyLabel": "叮噹"
   },
   {
     "id": "mother",
     "name": "達林太太",
     "kind": "character",
-    "src": "./peterpan/assets/sprites/mother.webp"
+    "src": "./peterpan/assets/sprites/mother.webp",
+    "storyLabel": "達林太太"
   },
   {
     "id": "nana",
     "name": "娜娜",
     "kind": "character",
-    "src": "./peterpan/assets/sprites/nana.webp"
+    "src": "./peterpan/assets/sprites/nana.webp",
+    "storyLabel": "娜娜"
   },
   {
     "id": "lost_boys",
     "name": "迷失男孩",
     "kind": "character",
-    "src": "./peterpan/assets/sprites/lost_boys.webp"
+    "src": "./peterpan/assets/sprites/lost_boys.webp",
+    "storyLabel": "迷失男孩們"
   },
   {
     "id": "hook",
     "name": "虎克船長",
     "kind": "character",
-    "src": "./peterpan/assets/sprites/hook.webp"
+    "src": "./peterpan/assets/sprites/hook.webp",
+    "storyLabel": "虎克船長"
   },
   {
     "id": "tiger_lily",
     "name": "虎蓮公主",
     "kind": "character",
-    "src": "./peterpan/assets/sprites/tiger_lily.webp"
+    "src": "./peterpan/assets/sprites/tiger_lily.webp",
+    "storyLabel": "虎蓮公主"
   },
   {
     "id": "crocodile",
     "name": "鱷魚",
     "kind": "character",
-    "src": "./peterpan/assets/sprites/crocodile.webp"
+    "src": "./peterpan/assets/sprites/crocodile.webp",
+    "storyLabel": "鱷魚"
   },
   {
     "id": "never_bird",
     "name": "永無鳥",
     "kind": "character",
-    "src": "./peterpan/assets/sprites/never_bird.webp"
+    "src": "./peterpan/assets/sprites/never_bird.webp",
+    "storyLabel": "一隻永無鳥"
   },
   {
     "id": "jane",
     "name": "珍",
     "kind": "character",
-    "src": "./peterpan/assets/sprites/jane.webp"
+    "src": "./peterpan/assets/sprites/jane.webp",
+    "storyLabel": "珍"
   },
   {
     "id": "shadow",
     "name": "影子",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/shadow.webp"
+    "src": "./peterpan/assets/sprites/shadow.webp",
+    "storyLabel": "一個影子"
   },
   {
     "id": "sewing",
     "name": "針線",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/sewing.webp"
+    "src": "./peterpan/assets/sprites/sewing.webp",
+    "storyLabel": "針線"
   },
   {
     "id": "acorn",
     "name": "橡實墜飾",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/acorn.webp"
+    "src": "./peterpan/assets/sprites/acorn.webp",
+    "storyLabel": "橡實墜飾"
   },
   {
     "id": "pixiedust",
     "name": "仙塵",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/pixiedust.webp"
+    "src": "./peterpan/assets/sprites/pixiedust.webp",
+    "storyLabel": "仙塵"
   },
   {
     "id": "star",
     "name": "指路星",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/star.webp"
+    "src": "./peterpan/assets/sprites/star.webp",
+    "storyLabel": "指路星"
   },
   {
     "id": "map",
     "name": "夢幻島地圖",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/map.webp"
+    "src": "./peterpan/assets/sprites/map.webp",
+    "storyLabel": "夢幻島地圖"
   },
   {
     "id": "cottage",
     "name": "樹葉小屋",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/cottage.webp"
+    "src": "./peterpan/assets/sprites/cottage.webp",
+    "storyLabel": "樹葉小屋"
   },
   {
     "id": "storybook",
     "name": "故事書",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/storybook.webp"
+    "src": "./peterpan/assets/sprites/storybook.webp",
+    "storyLabel": "故事書"
   },
   {
     "id": "clock",
     "name": "滴答時鐘",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/clock.webp"
+    "src": "./peterpan/assets/sprites/clock.webp",
+    "storyLabel": "滴答時鐘"
   },
   {
     "id": "rope",
     "name": "繩索",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/rope.webp"
+    "src": "./peterpan/assets/sprites/rope.webp",
+    "storyLabel": "繩索"
   },
   {
     "id": "nest",
     "name": "鳥巢",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/nest.webp"
+    "src": "./peterpan/assets/sprites/nest.webp",
+    "storyLabel": "鳥巢"
   },
   {
     "id": "plate",
     "name": "餐盤",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/plate.webp"
+    "src": "./peterpan/assets/sprites/plate.webp",
+    "storyLabel": "餐盤"
   },
   {
     "id": "window",
     "name": "窗戶",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/window.webp"
+    "src": "./peterpan/assets/sprites/window.webp",
+    "storyLabel": "窗戶"
   },
   {
     "id": "bag",
     "name": "旅行袋",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/bag.webp"
+    "src": "./peterpan/assets/sprites/bag.webp",
+    "storyLabel": "旅行袋"
   },
   {
     "id": "poison",
     "name": "毒藥",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/poison.webp"
+    "src": "./peterpan/assets/sprites/poison.webp",
+    "storyLabel": "毒藥"
   },
   {
     "id": "helm",
     "name": "船舵",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/helm.webp"
+    "src": "./peterpan/assets/sprites/helm.webp",
+    "storyLabel": "船舵"
   },
   {
     "id": "bed",
     "name": "新床鋪",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/bed.webp"
+    "src": "./peterpan/assets/sprites/bed.webp",
+    "storyLabel": "新床鋪"
   },
   {
     "id": "arrow",
     "name": "箭矢",
     "kind": "prop",
-    "src": "./peterpan/assets/sprites/arrow.webp"
+    "src": "./peterpan/assets/sprites/arrow.webp",
+    "storyLabel": "箭矢"
   }
 ];
 window.PETER_PAGES = [
@@ -211,7 +242,17 @@ window.PETER_PAGES = [
       "她望著緊閉的窗扇，輕輕提醒自己記住這件怪事。這個家每天都有許多尋常的小麻煩，可誰也沒料到，真正不尋常的客人還會回來。"
     ],
     "page": 1,
-    "scene": "./peterpan/assets/scenes/page-01.webp"
+    "scene": "./peterpan/assets/scenes/page-01.webp",
+    "storyTemplate": [
+      "倫敦的夜晚，總有些祕密躲在孩子的枕頭底下。達林家的溫蒂、約翰與麥可最喜歡彼得潘的故事。溫蒂說，他是個住在夢幻島、永遠不會長大的男孩。大人們以為那不過是夢。",
+      "可是，一個寧靜的夜裡，{slot0}聽見育兒室的窗邊傳來輕輕的笑聲。她趕到時，只見一個小小的身影逃進星空。保母犬娜娜跳向窗戶，竟把{slot1}留了下來。",
+      "達林太太把影子仔細捲好，收進抽屜。她不知道，這片像墨水般黑的影子，正是下一場冒險的開始。",
+      "她望著緊閉的窗扇，輕輕提醒自己記住這件怪事。這個家每天都有許多尋常的小麻煩，可誰也沒料到，真正不尋常的客人還會回來。"
+    ],
+    "slotHints": [
+      "一位發現祕密的大人",
+      "一件能捲起來的東西"
+    ]
   },
   {
     "chapter": 1,
@@ -228,7 +269,17 @@ window.PETER_PAGES = [
       "對彼得而言，會飛、會笑和打敗海盜都比學會道歉容易得多。可是面對一片不肯歸位的影子，他竟像個被難題困住的普通孩子。"
     ],
     "page": 2,
-    "scene": "./peterpan/assets/scenes/page-02.webp"
+    "scene": "./peterpan/assets/scenes/page-02.webp",
+    "storyTemplate": [
+      "幾天後，大人們外出，窗戶無聲地開了。一個穿著樹葉衣裳的男孩飛入育兒室，旁邊跟著一點金色的仙光。那是彼得潘與他的朋友叮噹。",
+      "{slot0}在抽屜裡翻找，終於找到了{slot1}。他高興地把它踩在腳邊，還想用肥皂黏回去，卻怎麼也不成功。他跺腳、嘆氣，最後竟懊惱地哭了。",
+      "哭聲吵醒了溫蒂。她睜開眼，看見故事裡的人物就在床前。原來一扇普通的窗戶，也真的可能通往不可思議的世界。",
+      "對彼得而言，會飛、會笑和打敗海盜都比學會道歉容易得多。可是面對一片不肯歸位的影子，他竟像個被難題困住的普通孩子。"
+    ],
+    "slotHints": [
+      "一位找影子的訪客",
+      "一片被藏起來的東西"
+    ]
   },
   {
     "chapter": 1,
@@ -245,7 +296,17 @@ window.PETER_PAGES = [
       "溫蒂把針線重新收好，叮噹在一旁發出不太高興的鈴聲。窗外的風拂過窗簾，彼得卻忽然覺得這個家比任何藏寶洞都新奇。"
     ],
     "page": 3,
-    "scene": "./peterpan/assets/scenes/page-03.webp"
+    "scene": "./peterpan/assets/scenes/page-03.webp",
+    "storyTemplate": [
+      "{slot0}沒有嘲笑彼得的狼狽。她找來{slot1}，告訴他：「影子要縫起來，不能像貼紙一樣用肥皂黏住。」彼得半信半疑，卻還是乖乖坐在床沿。",
+      "一針又一針，溫蒂沿著影子的邊緣細細縫合。最後一個線結打好時，彼得跳了起來；影子終於跟著他在牆上跳舞。",
+      "彼得得意得彷彿功勞全是自己的。為了道謝，他送給溫蒂一枚橡實鈕扣，說那是他的吻。溫蒂把它掛在胸前。她還不知道，這件小禮物將來會救她一命。",
+      "溫蒂把針線重新收好，叮噹在一旁發出不太高興的鈴聲。窗外的風拂過窗簾，彼得卻忽然覺得這個家比任何藏寶洞都新奇。"
+    ],
+    "slotHints": [
+      "一位懂得縫補的女孩",
+      "能修好影子的工具"
+    ]
   },
   {
     "chapter": 1,
@@ -262,7 +323,17 @@ window.PETER_PAGES = [
       "窗框在身後愈來愈小，溫蒂忍不住回頭看了最後一眼。她還以為黎明之前就能回來，並不知道有些旅程會把一個人的一生悄悄改變。"
     ],
     "page": 4,
-    "scene": "./peterpan/assets/scenes/page-04.webp"
+    "scene": "./peterpan/assets/scenes/page-04.webp",
+    "storyTemplate": [
+      "彼得說，他經常躲在窗外聽溫蒂說故事，因為夢幻島的迷失男孩沒有人替他們講睡前故事。「跟我走吧！」他認真邀請溫蒂。",
+      "溫蒂猶豫著看向熟睡的弟弟們。約翰與麥可醒來後，卻興奮地要求一起出發。{slot0}不太情願地飛近，從翅膀灑下耀眼的{slot1}。",
+      "孩子們的腳尖離開地板，慢慢飄過床柱與衣櫃。溫蒂仍記得母親的叮嚀，卻無法抵擋窗外的星空。四個孩子跟著彼得穿過窗戶，倫敦的街燈在腳下縮成閃亮的點。",
+      "窗框在身後愈來愈小，溫蒂忍不住回頭看了最後一眼。她還以為黎明之前就能回來，並不知道有些旅程會把一個人的一生悄悄改變。"
+    ],
+    "slotHints": [
+      "一位發光的小夥伴",
+      "讓人飛起來的魔法"
+    ]
   },
   {
     "chapter": 2,
@@ -279,7 +350,17 @@ window.PETER_PAGES = [
       "當風變冷時，彼得似乎仍有用不完的力氣。溫蒂卻明白，照顧弟弟們和欣賞星星一樣重要；她努力把三雙小手牽成一條不會散開的隊伍。"
     ],
     "page": 5,
-    "scene": "./peterpan/assets/scenes/page-05.webp"
+    "scene": "./peterpan/assets/scenes/page-05.webp",
+    "storyTemplate": [
+      "飛行起初像在玩一場沒有盡頭的遊戲。煙囪、鐘樓與沉睡的河流一一退到身後，城市漸漸成為星空下的一張小小地圖。",
+      "{slot0}飛在最前面，告訴大家，方向就在{slot1}，然後一直朝著早晨飛去。可是旅途十分漫長。麥可累得打瞌睡，約翰也開始想念柔軟的床鋪。",
+      "溫蒂緊牽弟弟們的手，怕有人在雲間掉隊。天色微亮時，一座海霧圍繞的島終於在遠方浮現。孩子們本以為那是夢，直到真的聞見鹹鹹的海風。",
+      "當風變冷時，彼得似乎仍有用不完的力氣。溫蒂卻明白，照顧弟弟們和欣賞星星一樣重要；她努力把三雙小手牽成一條不會散開的隊伍。"
+    ],
+    "slotHints": [
+      "一位熟悉航路的男孩",
+      "夜空中的方向"
+    ]
   },
   {
     "chapter": 2,
@@ -296,7 +377,17 @@ window.PETER_PAGES = [
       "島上的每個地方都像孩子心中不同的願望：有人渴望勇氣，有人想要自由，也有人只想找到一盞永遠為自己亮著的燈。"
     ],
     "page": 6,
-    "scene": "./peterpan/assets/scenes/page-06.webp"
+    "scene": "./peterpan/assets/scenes/page-06.webp",
+    "storyTemplate": [
+      "夢幻島比所有睡前故事加起來都更難以想像：海灣裡有人魚在礁石上梳頭，森林的樹根下藏著祕密入口，另一端還停泊著掛黑旗的海盜船。",
+      "{slot0}拿著{slot1}從高空俯瞰，認出海灘、森林、山丘與閃亮的礁湖。約翰把自己想像成探險家，麥可則覺得每棵樹都可能藏著寶藏。",
+      "只有彼得像回到自己房間那樣自在。他急著帶孩子們降落，沒發現叮噹先一步鑽入樹梢。小仙子正因為彼得太關心溫蒂，而想出一個不光彩的主意。",
+      "島上的每個地方都像孩子心中不同的願望：有人渴望勇氣，有人想要自由，也有人只想找到一盞永遠為自己亮著的燈。"
+    ],
+    "slotHints": [
+      "一位新來的旅人",
+      "辨認島嶼的物品"
+    ]
   },
   {
     "chapter": 2,
@@ -313,7 +404,17 @@ window.PETER_PAGES = [
       "彼得原本想責罰犯錯的叮噹，卻也看見每個人因為嫉妒或害怕而做出錯事。溫蒂摸著橡實，知道自己需要的不是報復，而是重新彼此信任。"
     ],
     "page": 7,
-    "scene": "./peterpan/assets/scenes/page-07.webp"
+    "scene": "./peterpan/assets/scenes/page-07.webp",
+    "storyTemplate": [
+      "叮噹搶先飛到迷失男孩面前，假傳彼得的命令，說天上正有一隻危險的大鳥。男孩嘟嘟信以為真，趕忙舉弓。",
+      "溫蒂才飛過樹梢，一支箭便迎面射來。她失去平衡，跌入草叢。迷失男孩衝上前才發現，那不是什麼惡鳥，而是一名人類女孩。",
+      "幸好，彼得剛送她的{slot1}擋住了箭頭。{slot0}昏迷片刻，沒有受到致命傷害。彼得趕到時又驚又怒；叮噹不敢抬頭。溫蒂醒來後，卻希望大家不要再互相傷害。",
+      "彼得原本想責罰犯錯的叮噹，卻也看見每個人因為嫉妒或害怕而做出錯事。溫蒂摸著橡實，知道自己需要的不是報復，而是重新彼此信任。"
+    ],
+    "slotHints": [
+      "一位被箭射中的女孩",
+      "能保護人的小禮物"
+    ]
   },
   {
     "chapter": 2,
@@ -330,7 +431,17 @@ window.PETER_PAGES = [
       "從那天起，溫蒂在森林裡不再只是來訪的客人。可一間被花朵圍繞的小屋，究竟能不能代替倫敦那個有媽媽的家，誰也沒有答案。"
     ],
     "page": 8,
-    "scene": "./peterpan/assets/scenes/page-08.webp"
+    "scene": "./peterpan/assets/scenes/page-08.webp",
+    "storyTemplate": [
+      "溫蒂需要休息，迷失男孩卻不敢把她隨便搬來搬去。於是大家決定：乾脆在她躺著的地方蓋一間房子吧！",
+      "有人找來木板，有人採集樹葉，有人把最漂亮的小花插進窗邊。彼得忙著當指揮，往往說得比做得多，卻把所有人逗得哈哈大笑。",
+      "溫蒂睜眼時，{slot1}已經出現在面前。{slot0}害羞地問她，願不願意留下來，成為他們的媽媽。溫蒂雖然還是孩子，卻第一次感覺自己的故事可以溫暖這麼多人。",
+      "從那天起，溫蒂在森林裡不再只是來訪的客人。可一間被花朵圍繞的小屋，究竟能不能代替倫敦那個有媽媽的家，誰也沒有答案。"
+    ],
+    "slotHints": [
+      "一群想幫忙的孩子",
+      "一間新蓋的房子"
+    ]
   },
   {
     "chapter": 3,
@@ -347,7 +458,17 @@ window.PETER_PAGES = [
       "樹根外面，夜鳥偶爾發出短促的叫聲。故事讀到一半時，幾個迷失男孩已經睡著了，卻仍緊握著溫蒂的衣角，不願她離開。"
     ],
     "page": 9,
-    "scene": "./peterpan/assets/scenes/page-09.webp"
+    "scene": "./peterpan/assets/scenes/page-09.webp",
+    "storyTemplate": [
+      "彼得帶著大家進入一棵巨樹的祕密通道。每個迷失男孩都有恰好容得下自己的樹洞。溫蒂得彎下腰，還常常在轉彎處碰到頭。",
+      "地底之家有一座溫暖的火爐、粗糙的木桌、柔軟的床鋪，還有永遠不嫌擁擠的座位。孩子們白天探險，夜晚圍到{slot0}身旁，聽她從{slot1}裡講故事。",
+      "彼得喜歡扮演一家之主，卻常常忘記前一天答應過的事情。溫蒂心想，這裡的快樂是真實的，可這些孩子心中，也藏著對一個家的深深渴望。",
+      "樹根外面，夜鳥偶爾發出短促的叫聲。故事讀到一半時，幾個迷失男孩已經睡著了，卻仍緊握著溫蒂的衣角，不願她離開。"
+    ],
+    "slotHints": [
+      "一位會說故事的女孩",
+      "一本記錄冒險的書"
+    ]
   },
   {
     "chapter": 3,
@@ -364,7 +485,17 @@ window.PETER_PAGES = [
       "虎克站得筆直，極力不讓船員看出恐懼。他可以恐嚇別人，卻無法命令時間停止；那規律的鐘聲總是提醒他，有些事永遠追在身後。"
     ],
     "page": 10,
-    "scene": "./peterpan/assets/scenes/page-10.webp"
+    "scene": "./peterpan/assets/scenes/page-10.webp",
+    "storyTemplate": [
+      "在夢幻島另一端，{slot0}站在海盜船的甲板上，華麗的舊外套在海風中獵獵飄動。他一隻手早已被彼得奪去，換上一枚鋒利的鐵鉤。",
+      "但令虎克真正害怕的，不是彼得，而是一隻巨大的鱷魚。牠曾吞下虎克的手，也吞下{slot1}；從此追逐船長時，腹中總傳來規律的滴答聲。",
+      "只要鐘聲接近，虎克便再也顧不得威風。他命令海盜搜尋迷失男孩的住處，發誓要把彼得趕出夢幻島。",
+      "虎克站得筆直，極力不讓船員看出恐懼。他可以恐嚇別人，卻無法命令時間停止；那規律的鐘聲總是提醒他，有些事永遠追在身後。"
+    ],
+    "slotHints": [
+      "一位害怕鐘聲的船長",
+      "一件會滴答作響的東西"
+    ]
   },
   {
     "chapter": 3,
@@ -381,7 +512,17 @@ window.PETER_PAGES = [
       "虎蓮公主沒有忘記那個在礁湖上替她解圍的朋友，也沒有忘記保護族人的責任。她離開時的目光堅定，彷彿已經知道今後該守護什麼。"
     ],
     "page": 11,
-    "scene": "./peterpan/assets/scenes/page-11.webp"
+    "scene": "./peterpan/assets/scenes/page-11.webp",
+    "storyTemplate": [
+      "美人魚礁湖的水在月光下閃亮得像無數小星星。彼得與溫蒂經過岩石時，發現海盜正把虎蓮公主困在礁石旁，海水還不斷上漲。",
+      "{slot0}躲在暗處，模仿虎克船長的聲音，大聲命令海盜鬆開{slot1}。海盜們沒有認出聲音的主人，只得不情願地照辦。",
+      "虎蓮公主重獲自由，向彼得致意，迅速返回安全的岸邊。溫蒂剛鬆一口氣，卻發現真正的虎克船長已在靠近。海面上的風忽然變得冰冷。",
+      "虎蓮公主沒有忘記那個在礁湖上替她解圍的朋友，也沒有忘記保護族人的責任。她離開時的目光堅定，彷彿已經知道今後該守護什麼。"
+    ],
+    "slotHints": [
+      "一位勇敢的救援者",
+      "束縛公主的東西"
+    ]
   },
   {
     "chapter": 3,
@@ -398,7 +539,17 @@ window.PETER_PAGES = [
       "彼得坐在鳥巢上隨浪搖晃，難得沒有大聲誇耀自己的本領。他望著越飛越遠的永無鳥，心中第一次認真記住別人為他做過的好事。"
     ],
     "page": 12,
-    "scene": "./peterpan/assets/scenes/page-12.webp"
+    "scene": "./peterpan/assets/scenes/page-12.webp",
+    "storyTemplate": [
+      "救援過後，彼得在與虎克的衝突中被困在一塊礁石上。海潮愈漲愈高，他找不到能飛回岸邊的路，也看不見可以求助的小船。",
+      "{slot0}推著{slot1}向他漂來。彼得起初聽不懂牠的叫聲，直到鳥兒飛離巢穴，才明白那是願意借他一艘小船。",
+      "彼得小心安置鳥巢裡的蛋，又找來一頂海盜帽遮護牠們。隨後他坐進巢裡，乘著海流離開危險的礁石。永無鳥終於能安心飛回自己的孩子身旁。",
+      "彼得坐在鳥巢上隨浪搖晃，難得沒有大聲誇耀自己的本領。他望著越飛越遠的永無鳥，心中第一次認真記住別人為他做過的好事。"
+    ],
+    "slotHints": [
+      "一位願意幫忙的鳥兒",
+      "一個能漂浮的東西"
+    ]
   },
   {
     "chapter": 4,
@@ -415,7 +566,17 @@ window.PETER_PAGES = [
       "看著空盤子，溫蒂不免露出微笑。可是每一場假裝遊戲結束後，真實的飢餓和思念依舊存在；她漸漸發現自己不能只靠故事照顧所有人。"
     ],
     "page": 13,
-    "scene": "./peterpan/assets/scenes/page-13.webp"
+    "scene": "./peterpan/assets/scenes/page-13.webp",
+    "storyTemplate": [
+      "夢幻島的日子流逝得很奇怪。今天剛打敗的敵人，明天或許又會在森林裡出現；昨天的冒險，彼得常常已經忘了。",
+      "溫蒂卻努力記住每個孩子的喜好。她照顧弟弟們，幫{slot0}整理衣服，還為他們安排晚餐。桌上的{slot1}有時空空的，孩子們卻興高采烈地假裝正在享用佳餚。",
+      "夜深人靜時，溫蒂望著頭頂的樹根，偶爾會想起倫敦的窗戶、母親的聲音，以及保母犬娜娜守在床邊的模樣。她開始懷疑，自己是否離家太久。",
+      "看著空盤子，溫蒂不免露出微笑。可是每一場假裝遊戲結束後，真實的飢餓和思念依舊存在；她漸漸發現自己不能只靠故事照顧所有人。"
+    ],
+    "slotHints": [
+      "一群想像力豐富的孩子",
+      "盛裝晚餐的東西"
+    ]
   },
   {
     "chapter": 4,
@@ -432,7 +593,17 @@ window.PETER_PAGES = [
       "迷失男孩們聽得出神，彼得卻扭頭望向陰暗處。成長對大多數孩子像一條河，他卻寧可永遠停在岸邊，連水聲也不肯聽。"
     ],
     "page": 14,
-    "scene": "./peterpan/assets/scenes/page-14.webp"
+    "scene": "./peterpan/assets/scenes/page-14.webp",
+    "storyTemplate": [
+      "一個安靜的晚上，溫蒂說起三個孩子離家的故事。故事中的孩子飛過星空，經歷無數冒險，卻發現家中仍有人每天替他們留著燈。",
+      "迷失男孩問：「他們的媽媽會一直等嗎？」{slot0}希望答案是肯定的。彼得卻說，自己曾想回到母親身邊，卻發現{slot1}關了，屋裡已經有了另一個孩子。",
+      "溫蒂不知道彼得記得多少往事，但這個故事使她心裡難過。她望著火光，想起自己的家，決定不應該再等待下去。",
+      "迷失男孩們聽得出神，彼得卻扭頭望向陰暗處。成長對大多數孩子像一條河，他卻寧可永遠停在岸邊，連水聲也不肯聽。"
+    ],
+    "slotHints": [
+      "一位想念母親的女孩",
+      "一扇通往家的東西"
+    ]
   },
   {
     "chapter": 4,
@@ -449,7 +620,17 @@ window.PETER_PAGES = [
       "告別的話說出口後，反而比想像中更難收回。溫蒂擔心彼得孤單，也知道自己如果不走，就會辜負仍在倫敦等待的母親。"
     ],
     "page": 15,
-    "scene": "./peterpan/assets/scenes/page-15.webp"
+    "scene": "./peterpan/assets/scenes/page-15.webp",
+    "storyTemplate": [
+      "第二天，溫蒂告訴彼得，她要帶著約翰和麥可回倫敦。彼得的笑容一下子不見了。他說夢幻島還有那麼多故事，迷失男孩也捨不得失去她。",
+      "但溫蒂沒有改變心意。幾個迷失男孩聽見這個決定，也希望跟著她回到有大人照顧的家。彼得只好轉身，裝作自己毫不在乎。",
+      "{slot0}收拾簡單的{slot1}，最後看了一眼地底之家的桌椅。她明白，喜愛某個地方，不代表必須永遠留在那裡。孩子們開始向樹洞出口走去。",
+      "告別的話說出口後，反而比想像中更難收回。溫蒂擔心彼得孤單，也知道自己如果不走，就會辜負仍在倫敦等待的母親。"
+    ],
+    "slotHints": [
+      "一位準備回家的孩子",
+      "能裝行李的東西"
+    ]
   },
   {
     "chapter": 4,
@@ -466,7 +647,17 @@ window.PETER_PAGES = [
       "海盜帶走的不是一群真正的敵人，而是只想回家的孩子。虎克卻把恐懼與報復當成勝利，渾然不知最危險的錯誤正是在這一夜犯下。"
     ],
     "page": 16,
-    "scene": "./peterpan/assets/scenes/page-16.webp"
+    "scene": "./peterpan/assets/scenes/page-16.webp",
+    "storyTemplate": [
+      "孩子們不知道，虎克已經追查到地底之家的祕密入口。溫蒂與迷失男孩逐一爬出樹洞時，海盜突然從樹影裡出現，將他們押往海灣中的船。",
+      "彼得正在地底沉睡，沒有聽見外面的動靜。{slot0}悄悄走進屋內，看見床邊放著一杯彼得預備服用的藥。",
+      "船長露出陰冷的笑容，將{slot1}倒進藥杯，然後無聲離去。等彼得醒來時，朋友們全都不見了；桌上只剩那杯被動過手腳的藥。",
+      "海盜帶走的不是一群真正的敵人，而是只想回家的孩子。虎克卻把恐懼與報復當成勝利，渾然不知最危險的錯誤正是在這一夜犯下。"
+    ],
+    "slotHints": [
+      "一位陰險的海盜",
+      "倒進藥杯的危險液體"
+    ]
   },
   {
     "chapter": 5,
@@ -483,7 +674,17 @@ window.PETER_PAGES = [
       "在微弱仙光裡，彼得不再假裝什麼都不在乎。他小心捧著朋友，明白有些勇氣不屬於比武或冒險，而是願意為別人付出自己。"
     ],
     "page": 17,
-    "scene": "./peterpan/assets/scenes/page-17.webp"
+    "scene": "./peterpan/assets/scenes/page-17.webp",
+    "storyTemplate": [
+      "彼得知道孩子們被海盜帶走，正準備出發，卻想起床邊的藥杯。{slot0}飛了回來，急切地警告他不要喝。",
+      "{slot1}不相信藥裡有毒。為了救他，叮噹在他來得及阻止前，自己喝了那杯藥。金色的光芒立即暗淡下去，弱得幾乎看不見。",
+      "彼得慌張地握住小仙子，呼喚每個願意相信仙子存在的孩子。遙遠夜空彷彿也傳來一點又一點的光。終於，叮噹重新張開了翅膀。",
+      "在微弱仙光裡，彼得不再假裝什麼都不在乎。他小心捧著朋友，明白有些勇氣不屬於比武或冒險，而是願意為別人付出自己。"
+    ],
+    "slotHints": [
+      "一位願意犧牲的朋友",
+      "她拚命保護的人"
+    ]
   },
   {
     "chapter": 5,
@@ -500,7 +701,17 @@ window.PETER_PAGES = [
       "滴答聲在空蕩的船板上迴響，像一段從未停止的童年遊戲。這一次，彼得把聰明用在拯救朋友，而不是用來取笑任何人。"
     ],
     "page": 18,
-    "scene": "./peterpan/assets/scenes/page-18.webp"
+    "scene": "./peterpan/assets/scenes/page-18.webp",
+    "storyTemplate": [
+      "虎克的船停泊在漆黑的海灣，溫蒂和迷失男孩被困在甲板下。彼得飛到船旁，聽見朋友們還活著，便開始尋找救人的方法。",
+      "這時船上突然傳來混亂聲。海盜以為水中有鱷魚靠近，紛紛往後退。{slot0}想起鱷魚腹中那只{slot1}，立刻有了主意。",
+      "他模仿鐘聲的節奏，滴答、滴答，一步步靠近。虎克與海盜們害怕得不敢靠近船邊，彼得趁機悄悄爬上甲板。",
+      "滴答聲在空蕩的船板上迴響，像一段從未停止的童年遊戲。這一次，彼得把聰明用在拯救朋友，而不是用來取笑任何人。"
+    ],
+    "slotHints": [
+      "一位機靈的孩子",
+      "一件會滴答作響的東西"
+    ]
   },
   {
     "chapter": 5,
@@ -517,7 +728,17 @@ window.PETER_PAGES = [
       "繩子一條條鬆開，孩子們的臉上終於有了笑意。他們知道這並不是故事的終點，卻願意相信，彼此團結總能找到下一條出路。"
     ],
     "page": 19,
-    "scene": "./peterpan/assets/scenes/page-19.webp"
+    "scene": "./peterpan/assets/scenes/page-19.webp",
+    "storyTemplate": [
+      "{slot0}與迷失男孩被困在海盜船上，四周都是陰冷的木板與昏暗的油燈。孩子們雖然害怕，仍彼此依靠。",
+      "溫蒂努力安慰年紀最小的男孩。突然，黑暗裡傳來一個熟悉的聲音：「等一下。」彼得像平常參加遊戲那樣，輕快地從陰影裡出現。",
+      "他引開看守，帶著大家逐一解開{slot1}。孩子們重獲自由，溫蒂看著彼得，第一次覺得這個總愛嬉鬧的男孩，竟也有如此可靠的一面。",
+      "繩子一條條鬆開，孩子們的臉上終於有了笑意。他們知道這並不是故事的終點，卻願意相信，彼此團結總能找到下一條出路。"
+    ],
+    "slotHints": [
+      "一位勇敢的女孩",
+      "綁住大家的東西"
+    ]
   },
   {
     "chapter": 5,
@@ -534,7 +755,17 @@ window.PETER_PAGES = [
       "船上的風終於慢慢平息。孩子們望著平靜的海面，明白勝利不是因為誰比誰強大，而是他們終於能帶著朋友平安回家。"
     ],
     "page": 20,
-    "scene": "./peterpan/assets/scenes/page-20.webp"
+    "scene": "./peterpan/assets/scenes/page-20.webp",
+    "storyTemplate": [
+      "甲板上的騷動終於驚動了虎克。船長舉起鐵鉤，怒氣沖沖地走向彼得。兩人隔著月光對望，彷彿整座夢幻島都在等待這場決鬥。",
+      "{slot0}沒有退縮，{slot1}卻用盡狡猾招數，想趁機擊敗他。海風把船帆吹得獵獵作響，遠處又忽然傳來熟悉的滴答聲。",
+      "虎克的神情瞬間變了。混亂中，他跌落海中，再也沒有回到船上。鱷魚仍在黑暗的水面下等待，海盜的威脅終於結束。",
+      "船上的風終於慢慢平息。孩子們望著平靜的海面，明白勝利不是因為誰比誰強大，而是他們終於能帶著朋友平安回家。"
+    ],
+    "slotHints": [
+      "一位不願退縮的男孩",
+      "一位握著鐵鉤的敵人"
+    ]
   },
   {
     "chapter": 6,
@@ -551,7 +782,17 @@ window.PETER_PAGES = [
       "海面愈來愈亮，風裡已有清晨的味道。溫蒂告訴自己，夢幻島不會被遺忘，可是從今以後，她願意把冒險當作生命的一部分，而不是全部。"
     ],
     "page": 21,
-    "scene": "./peterpan/assets/scenes/page-21.webp"
+    "scene": "./peterpan/assets/scenes/page-21.webp",
+    "storyTemplate": [
+      "海盜離開後，甲板重新響起孩子們的笑聲。{slot0}站在船頭，握著{slot1}，宣布自己現在是船長；約翰研究起帆繩與航向，麥可則幻想著真正的海上冒險。",
+      "溫蒂望著越來越遠的夢幻島。那裡有她喜歡的森林、友善的朋友、精彩的探險，也有令她害怕的黑夜。她知道自己一定會想念這座島。",
+      "可是，她更想念母親。當船向倫敦航去時，彼得依舊興高采烈，彷彿回家只是另一場遊戲。溫蒂沒有提醒他，有些事情可能再也不會和從前一樣。",
+      "海面愈來愈亮，風裡已有清晨的味道。溫蒂告訴自己，夢幻島不會被遺忘，可是從今以後，她願意把冒險當作生命的一部分，而不是全部。"
+    ],
+    "slotHints": [
+      "一位掌舵的孩子",
+      "讓船改變方向的東西"
+    ]
   },
   {
     "chapter": 6,
@@ -568,7 +809,17 @@ window.PETER_PAGES = [
       "那晚，育兒室的燈亮了很久。達林太太一遍遍看著孩子們，彷彿害怕一眨眼，他們就會再次化為窗外的星光。"
     ],
     "page": 22,
-    "scene": "./peterpan/assets/scenes/page-22.webp"
+    "scene": "./peterpan/assets/scenes/page-22.webp",
+    "storyTemplate": [
+      "達林家的育兒室仍保持著從前的模樣。三張床鋪整整齊齊，保母犬娜娜守在房門附近。只是達林太太的笑容，比孩子們離家前少了許多。",
+      "某天夜裡，那扇熟悉的{slot1}再次傳來聲音。{slot0}先走進房間，約翰與麥可跟在身後。母親起初以為自己又做了一場夢。",
+      "直到溫蒂跑過去抱住她，達林太太才相信孩子們真的回來了。眼淚與笑聲混在一起；溫蒂終於明白，家中有人等待，本身就是無比珍貴的幸福。",
+      "那晚，育兒室的燈亮了很久。達林太太一遍遍看著孩子們，彷彿害怕一眨眼，他們就會再次化為窗外的星光。"
+    ],
+    "slotHints": [
+      "一位回家的女孩",
+      "一扇熟悉的出入口"
+    ]
   },
   {
     "chapter": 6,
@@ -585,7 +836,17 @@ window.PETER_PAGES = [
       "彼得飛出窗外時，沒有回頭。他以為一切還會像從前一樣，可歲月已經開始在溫蒂和其他孩子身上，安靜地寫下新的故事。"
     ],
     "page": 23,
-    "scene": "./peterpan/assets/scenes/page-23.webp"
+    "scene": "./peterpan/assets/scenes/page-23.webp",
+    "storyTemplate": [
+      "{slot0}也跟著來到達林家。達林太太聽見他們的遭遇，願意給他們溫暖的新家。孩子們開始想像以後的{slot1}、學校、書本與早餐。",
+      "只有彼得沒有高興。他不想上學，不想接受大人的規矩，也不願有一天照鏡子時，發現自己已經長大。",
+      "溫蒂希望他留下，他卻只搖頭，答應將來還會回來找她。當彼得飛出窗外時，溫蒂突然懂得：永遠不長大，也可能意味著無法一直留住自己愛的人。",
+      "彼得飛出窗外時，沒有回頭。他以為一切還會像從前一樣，可歲月已經開始在溫蒂和其他孩子身上，安靜地寫下新的故事。"
+    ],
+    "slotHints": [
+      "一群尋找家的孩子",
+      "讓孩子安心睡覺的家具"
+    ]
   },
   {
     "chapter": 6,
@@ -602,6 +863,16 @@ window.PETER_PAGES = [
       "彼得依舊不懂，為什麼溫蒂的眼神既喜悅又悲傷。可是當小珍飛過窗口時，溫蒂終於相信：長大並不是忘記魔法，而是學會把魔法交給下一代。"
     ],
     "page": 24,
-    "scene": "./peterpan/assets/scenes/page-24.webp"
+    "scene": "./peterpan/assets/scenes/page-24.webp",
+    "storyTemplate": [
+      "許多年過去了。溫蒂長大了，有了自己的家庭，也有一個名叫珍的女兒。她仍記得夢幻島、叮噹的光，以及一個曾在窗口放聲大笑的男孩。",
+      "某天夜裡，彼得潘又飛來了。他看起來和從前一樣，彷彿歲月從未碰過他；看見已經長大的溫蒂時，他卻驚訝地沉默了。",
+      "這時，{slot1}從床上坐起，好奇地望向{slot0}。她聽過母親的所有故事，也曾夢見夢幻島。{slot0}向她伸出手，帶她飛入繁星。溫蒂留在窗邊微笑，明白童年會過去，故事卻能在下一個孩子心中繼續。",
+      "彼得依舊不懂，為什麼溫蒂的眼神既喜悅又悲傷。可是當小珍飛過窗口時，溫蒂終於相信：長大並不是忘記魔法，而是學會把魔法交給下一代。"
+    ],
+    "slotHints": [
+      "一位永遠不長大的男孩",
+      "一位聽故事長大的孩子"
+    ]
   }
 ];

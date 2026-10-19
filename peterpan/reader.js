@@ -97,9 +97,30 @@
     $("pageTitle").textContent = data.title;
     $("readingProgress").textContent = "第 "+data.page+" / 24 頁";
     const body = $("storyText");
-    body.replaceChildren(...data.text.map(text=>{
-      const el=document.createElement("p");
-      el.textContent=text;
+    const templates = data.storyTemplate || data.text;
+    body.replaceChildren(...templates.map(template=>{
+      const el = document.createElement("p");
+      const parts = template.split(/\{slot([01])\}/g);
+      for (let i=0; i<parts.length; i++) {
+        if (i % 2 === 0) {
+          el.append(document.createTextNode(parts[i]));
+          continue;
+        }
+        const slot = Number(parts[i]);
+        const sticker = byId[placement(state.page,slot)];
+        const span = document.createElement("span");
+        span.dataset.storySlot = String(slot);
+        span.className = !sticker ? "story-token-hint"
+          : state.finished[state.page] && isCorrect(state.page)
+            ? "story-token-correct" : "story-token-filled";
+        span.textContent = sticker
+          ? (sticker.storyLabel || sticker.name)
+          : "【" + (data.slotHints?.[slot] || "等待貼紙") + "】";
+        span.setAttribute("aria-label", sticker
+          ? "已放入：" + sticker.name
+          : "待放入：" + (data.slotHints?.[slot] || "貼紙"));
+        el.append(span);
+      }
       return el;
     }));
     $("pageClue").textContent = data.clue;
