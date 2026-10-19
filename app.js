@@ -446,6 +446,18 @@ $("reset").addEventListener("click", () => {
   render();
 });
 
+// Portrait-size layout: reuse the same tray node directly under the scene.
+const portraitLayout = window.matchMedia("(max-width: 900px)");
+const workspaceEl = document.querySelector(".workspace");
+const trayEl = document.querySelector(".tray");
+const sceneEl = document.getElementById("illustration");
+function updateTrayLayout() {
+  if (portraitLayout.matches) sceneEl.after(trayEl);
+  else workspaceEl.append(trayEl);
+}
+portraitLayout.addEventListener("change", updateTrayLayout);
+updateTrayLayout();
+
 // 啟動渲染
 render();
 
