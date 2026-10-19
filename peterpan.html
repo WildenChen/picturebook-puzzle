@@ -1,0 +1,68 @@
+---
+---
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#171c30">
+  <meta name="description" content="彼得潘：永不長大的夢幻島。忠於 J. M. Barrie 原著精神的 24 頁互動繪本。">
+  <title>彼得潘：永不長大的夢幻島｜互動繪本</title>
+  <link rel="stylesheet" href="./peterpan/reader.css?v={{ site.github.build_revision }}">
+</head>
+<body>
+  <div class="paper-grain" aria-hidden="true"></div>
+  <div class="shell">
+    <header class="topbar">
+      <a href="./" class="back" aria-label="返回故事書架">‹ <span>返回書架</span></a>
+      <div class="brand"><span class="star">✦</span><span>夢幻島 <small>THE NEVERLAND STORYBOOK</small></span></div>
+      <button id="resetPage" class="muted" type="button">重設本頁</button>
+    </header>
+    <div class="book-heading">
+      <p class="eyebrow">AN ORIGINAL STORYBOOK ADAPTATION · 1911</p>
+      <h1>彼得潘 <span>永不長大的夢幻島</span></h1>
+      <p>星光不會告訴我們如何長大，故事卻會。</p>
+    </div>
+    <div class="chapter-nav" id="chapterNav" aria-label="六個章節"></div>
+    <div class="workspace">
+      <main class="reading-book" id="reader">
+        <div class="page-head">
+          <span id="chapterLabel">第一章</span>
+          <span id="readingProgress" aria-live="polite">第 1 / 24 頁</span>
+        </div>
+        <section class="story-copy" aria-label="故事正文">
+          <div class="story-eyebrow" id="pageChapter"></div>
+          <h2 id="pageTitle"></h2>
+          <div id="storyText" class="story-text"></div>
+          <p id="storyNote" class="story-note" role="status" aria-live="polite"></p>
+        </section>
+        <div class="stage-shell">
+          <div id="stage" class="stage" aria-label="互動故事插畫，選取貼紙後點這裡放入" tabindex="0">
+            <img id="sceneImage" class="scene-background" alt="故事場景插畫" />
+            <div class="stage-wash" aria-hidden="true"></div>
+            <div id="stageActors" class="stage-actors"></div>
+            <span class="stage-help" id="stageHelp">選擇貼紙，再放進場景</span>
+          </div>
+        </div>
+        <div class="reading-controls">
+          <button id="prevPage" type="button">← 上一頁</button>
+          <button id="checkPage" type="button" class="check">檢查這一頁 ✦</button>
+          <button id="nextPage" type="button">下一頁 →</button>
+        </div>
+        <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+      </main>
+      <aside class="toolbox" aria-label="故事貼紙">
+        <div class="toolbox-top"><div><span class="tiny">YOUR STORY COLLECTION</span><h3>故事貼紙</h3></div><span id="stickerCount" class="count"></span></div>
+        <p class="toolbox-help">選貼紙後點選場景的放置區，或把貼紙拖進插畫；再次點選已放入的貼紙可取下。</p>
+        <div id="stickerTray" class="sticker-tray"></div>
+        <div class="clue-box"><span>✧ 這一頁的線索</span><p id="pageClue"></p></div>
+        <div class="completion"><div><span>全書解謎進度</span><b id="completeCount">0 / 24</b></div><div class="meter"><div id="meterFill"></div></div></div>
+        <button id="resetBook" class="reset-book" type="button">清除整本書的進度</button>
+      </aside>
+    </div>
+    <footer>根據 J. M. Barrie《Peter and Wendy》（1911）改編 · 原創繁體中文故事與插畫<br>目前發布版本：<span>{{ site.github.build_revision | slice: 0, 7 }}</span></footer>
+  </div>
+  <script src="./peterpan/data.js?v={{ site.github.build_revision }}"></script>
+  <script src="./peterpan/reader.js?v={{ site.github.build_revision }}" defer></script>
+</body>
+</html>

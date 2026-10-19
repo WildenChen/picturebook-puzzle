@@ -5,3 +5,9 @@ art-drafts/
 __pycache__/
 *.pyc
 moonlight_forest_chatgpt_art.zip
+# Peter Pan local art-generation logs and temporary visual-test pages
+peterpan/*.log
+peterpan/*.pid
+peterpan-preview.html
+peterpan-visual.html
+shelf-visual.html
