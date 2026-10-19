@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 170" width="100%" height="100%">
+  <defs>
+    <radialGradient id="lantern-light" cx="50%" cy="55%" r="50%">
+      <stop offset="0%" stop-color="#fff8db" stop-opacity="1"/>
+      <stop offset="35%" stop-color="#ffdc73" stop-opacity="0.85"/>
+      <stop offset="70%" stop-color="#f39224" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#f39224" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="brass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8bf6a"/>
+      <stop offset="50%" stop-color="#c19139"/>
+      <stop offset="100%" stop-color="#73501a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Big warm ambient glow radiating around lantern -->
+  <circle cx="65" cy="98" r="58" fill="url(#lantern-light)"/>
+
+  <!-- Cast shadow -->
+  <ellipse cx="65" cy="158" rx="26" ry="6" fill="#141a24" opacity="0.6"/>
+
+  <!-- Handle Loop (iron/brass wire) -->
+  <path d="M65 14 C44 14 42 42 42 46 L47 46 C47 42 50 20 65 20 C80 20 83 42 83 46 L88 46 C88 42 86 14 65 14 Z" fill="url(#brass)" stroke="#4a310c" stroke-width="1.5"/>
+  <circle cx="65" cy="14" r="5" fill="url(#brass)" stroke="#4a310c" stroke-width="1.5"/>
+
+  <!-- Chimney / Cap -->
+  <path d="M54 38 L76 38 L72 48 L58 48 Z" fill="url(#brass)" stroke="#4a310c" stroke-width="1.5"/>
+  <path d="M38 48 Q65 42 92 48 L96 56 Q65 52 34 56 Z" fill="url(#brass)" stroke="#4a310c" stroke-width="1.5"/>
+
+  <!-- Glass Chamber Background -->
+  <path d="M42 56 L88 56 L82 130 L48 130 Z" fill="#fff5cb" stroke="#684a17" stroke-width="2"/>
+
+  <!-- Candle & Bright Flame Inside -->
+  <rect x="60" y="104" width="10" height="24" rx="2" fill="#fff4e0" stroke="#d5b48b" stroke-width="1"/>
+  <!-- Candle wick -->
+  <line x1="65" y1="104" x2="65" y2="98" stroke="#3d2b1f" stroke-width="1.5"/>
+  <!-- Candle Flame -->
+  <path d="M65 82 C61 90 61 96 65 98 C69 96 69 90 65 82 Z" fill="#ffffff"/>
+  <path d="M65 80 C58 90 58 98 65 101 C72 98 72 90 65 80 Z" fill="#ffa726" opacity="0.85"/>
+
+  <!-- Metal cage / struts over glass -->
+  <line x1="42" y1="56" x2="48" y2="130" stroke="#73501a" stroke-width="2.5"/>
+  <line x1="88" y1="56" x2="82" y2="130" stroke="#73501a" stroke-width="2.5"/>
+  <line x1="65" y1="54" x2="65" y2="130" stroke="#73501a" stroke-width="2"/>
+  <!-- Cross struts -->
+  <path d="M40 92 Q65 96 90 92" stroke="#73501a" stroke-width="2" fill="none"/>
+
+  <!-- Lantern Base -->
+  <path d="M44 130 L86 130 L92 144 L38 144 Z" fill="url(#brass)" stroke="#4a310c" stroke-width="1.5"/>
+  <rect x="42" y="144" width="46" height="5" rx="2" fill="#583c13" stroke="#362308" stroke-width="1"/>
+
+  <!-- Magical sparkles drifting from lantern -->
+  <circle cx="28" cy="86" r="2.5" fill="#ffe999" opacity="0.8"/>
+  <circle cx="102" cy="74" r="2" fill="#ffe999" opacity="0.8"/>
+  <circle cx="96" cy="116" r="1.5" fill="#ffe999" opacity="0.7"/>
+</svg>

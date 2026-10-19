@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 220" width="100%" height="100%">
+  <defs>
+    <radialGradient id="girl-cheeks" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff7f7f" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ff7f7f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="girl-coat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bf4343"/>
+      <stop offset="100%" stop-color="#7d1f27"/>
+    </linearGradient>
+    <linearGradient id="girl-hood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d9534f"/>
+      <stop offset="100%" stop-color="#932b31"/>
+    </linearGradient>
+    <linearGradient id="girl-hair" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5a3825"/>
+      <stop offset="100%" stop-color="#361f14"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shadow under feet -->
+  <ellipse cx="80" cy="208" rx="38" ry="8" fill="#141a24" opacity="0.6"/>
+
+  <!-- Legs & Boots -->
+  <rect x="62" y="160" width="10" height="38" rx="4" fill="#30242b"/>
+  <rect x="88" y="160" width="10" height="38" rx="4" fill="#30242b"/>
+  <!-- Boots with fur trim -->
+  <path d="M58 190 h18 v12 c0 4 -4 6 -10 6 h-10 c-4 0 -6 -2 -6 -6 v-8 c0 -2 4 -4 8 -4 z" fill="#4a3020" stroke="#2a1a10" stroke-width="2"/>
+  <path d="M84 190 h18 v12 c0 4 -4 6 -10 6 h-10 c-4 0 -6 -2 -6 -6 v-8 c0 -2 4 -4 8 -4 z" fill="#4a3020" stroke="#2a1a10" stroke-width="2"/>
+  <rect x="56" y="186" width="22" height="6" rx="3" fill="#ecd9be"/>
+  <rect x="82" y="186" width="22" height="6" rx="3" fill="#ecd9be"/>
+
+  <!-- Back hair -->
+  <path d="M48 60 C38 90 42 130 52 145 C60 148 68 140 70 128 C64 100 66 75 70 60 Z" fill="url(#girl-hair)"/>
+  <path d="M112 60 C122 90 118 130 108 145 C100 148 92 140 90 128 C96 100 94 75 90 60 Z" fill="url(#girl-hair)"/>
+
+  <!-- Red Riding Hood Cape & Coat -->
+  <path d="M48 100 C40 135 32 170 30 176 C48 184 112 184 130 176 C128 170 120 135 112 100 Z" fill="url(#girl-coat)" stroke="#53161c" stroke-width="2"/>
+  
+  <!-- Coat Trim & Buttons -->
+  <path d="M80 102 L80 178" stroke="#f4d39f" stroke-width="2" stroke-dasharray="2 3"/>
+  <circle cx="80" cy="118" r="3.5" fill="#e5b869" stroke="#53161c" stroke-width="1"/>
+  <circle cx="80" cy="136" r="3.5" fill="#e5b869" stroke="#53161c" stroke-width="1"/>
+  <circle cx="80" cy="154" r="3.5" fill="#e5b869" stroke="#53161c" stroke-width="1"/>
+
+  <!-- Capelet Shoulder Wrap -->
+  <path d="M42 92 C42 92 56 122 80 122 C104 122 118 92 118 92 C124 105 112 128 80 128 C48 128 36 105 42 92 Z" fill="#8f2026"/>
+  <circle cx="80" cy="95" r="5" fill="#f4ce88" stroke="#591c20" stroke-width="1.5"/>
+
+  <!-- Head / Face -->
+  <ellipse cx="80" cy="65" rx="32" ry="34" fill="#ffebd2" stroke="#d49f7d" stroke-width="2"/>
+
+  <!-- Rosy cheeks -->
+  <circle cx="62" cy="74" r="9" fill="url(#girl-cheeks)"/>
+  <circle cx="98" cy="74" r="9" fill="url(#girl-cheeks)"/>
+
+  <!-- Cute Eyes - Layton storybook style: friendly dot-lash eyes -->
+  <ellipse cx="66" cy="65" rx="4" ry="5.5" fill="#2d2226"/>
+  <circle cx="67.5" cy="63" r="1.8" fill="#ffffff"/>
+  <ellipse cx="94" cy="65" rx="4" ry="5.5" fill="#2d2226"/>
+  <circle cx="95.5" cy="63" r="1.8" fill="#ffffff"/>
+
+  <!-- Eyebrows (gentle curve) -->
+  <path d="M60 55 Q66 52 72 55" stroke="#4a2e1b" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M88 55 Q94 52 100 55" stroke="#4a2e1b" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- Small nose & gentle smiling mouth -->
+  <circle cx="80" cy="69" r="1.5" fill="#c78c6e"/>
+  <path d="M76 76 Q80 80 84 76" stroke="#93463a" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- Hair front bangs -->
+  <path d="M52 50 C60 42 70 45 74 54 C76 46 86 42 106 50 C108 55 106 65 104 70 C100 55 92 50 82 52 C70 54 62 60 56 68 Z" fill="url(#girl-hair)"/>
+
+  <!-- Hood (framing the head with cozy fairy-tale volume) -->
+  <path d="M46 62 C40 30 62 14 80 14 C98 14 120 30 114 62 C122 75 120 94 116 100 C104 94 100 88 100 88 C80 102 60 88 60 88 C56 94 48 98 44 100 C40 94 38 75 46 62 Z" fill="url(#girl-hood)" stroke="#53161c" stroke-width="2.5"/>
+  <!-- Hood peaked tip -->
+  <path d="M76 15 Q80 4 86 10 Q82 16 78 16 Z" fill="#932b31"/>
+
+  <!-- Arms / Mittens -->
+  <!-- Left arm held gently forward to carry a lantern or touch heart -->
+  <path d="M46 98 Q36 122 46 142" stroke="#932b31" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <circle cx="48" cy="144" r="7.5" fill="#e5b869" stroke="#7a461b" stroke-width="1.5"/>
+
+  <!-- Right arm at side / holding skirt -->
+  <path d="M114 98 Q124 120 116 140" stroke="#932b31" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <circle cx="114" cy="142" r="7.5" fill="#e5b869" stroke="#7a461b" stroke-width="1.5"/>
+</svg>

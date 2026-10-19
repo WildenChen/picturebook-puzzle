@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sky-3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#141830"/>
+      <stop offset="40%" stop-color="#2a2e52"/>
+      <stop offset="80%" stop-color="#544c68"/>
+      <stop offset="100%" stop-color="#695770"/>
+    </linearGradient>
+    <radialGradient id="aurora" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#ffeaa7" stop-opacity="0.45"/>
+      <stop offset="40%" stop-color="#a8e6cf" stop-opacity="0.2"/>
+      <stop offset="80%" stop-color="#3d426b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pedestal-beam" cx="50%" cy="0%" r="90%">
+      <stop offset="0%" stop-color="#fff8db" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#ffdda1" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ffdda1" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="stone-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6a6878"/>
+      <stop offset="50%" stop-color="#464454"/>
+      <stop offset="100%" stop-color="#282632"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="800" height="450" fill="url(#sky-3)"/>
+
+  <!-- Celestial Glow / Aurora -->
+  <rect width="800" height="350" fill="url(#aurora)"/>
+
+  <!-- Stars -->
+  <g fill="#f8e7b9" opacity="0.9">
+    <circle cx="90" cy="50" r="1.5"/><circle cx="160" cy="80" r="1.2"/>
+    <circle cx="280" cy="45" r="2.5"/><polygon points="280,39 282,43 286,45 282,47 280,51 278,47 274,45 278,43" fill="#fff7d6"/>
+    <circle cx="520" cy="45" r="2.5"/><polygon points="520,39 522,43 526,45 522,47 520,51 518,47 514,45 518,43" fill="#fff7d6"/>
+    <circle cx="650" cy="70" r="1.5"/><circle cx="730" cy="95" r="1.5"/>
+  </g>
+
+  <!-- Grand Zenith Moon centered above clearing -->
+  <circle cx="400" cy="85" r="54" fill="#ffffff"/>
+  <circle cx="400" cy="85" r="50" fill="#fff7d9"/>
+  <!-- Storybook golden halo -->
+  <circle cx="400" cy="85" r="130" fill="url(#pedestal-beam)"/>
+
+  <!-- Distant enchanted forest silhouettes -->
+  <path d="M-20 270 Q200 230 400 250 T820 250 L820 450 L-20 450 Z" fill="#242842" opacity="0.8"/>
+  <path d="M-10 280 L20 245 L45 285 L85 235 L120 280 L180 230 L220 285 L580 285 L620 230 L670 280 L730 235 L770 280 L820 450 L-10 450 Z" fill="#1b1f36"/>
+
+  <!-- Gentle grassy knoll in center clearing -->
+  <path d="M-20 365 Q180 325 400 320 T820 365 L820 450 L-20 450 Z" fill="#202534"/>
+
+  <!-- Vertical Celestial Moonlight Shaft falling onto center pedestal -->
+  <polygon points="360,85 440,85 530,400 270,400" fill="url(#pedestal-beam)"/>
+
+  <!-- ANCIENT STONE PEDESTAL / ALTAR (Center-right, for storybook) -->
+  <!-- Stepped stone plinth -->
+  <ellipse cx="510" cy="385" rx="75" ry="20" fill="#1c1b24" stroke="#121118" stroke-width="2"/>
+  <ellipse cx="510" cy="378" rx="65" ry="16" fill="url(#stone-grad)" stroke="#1c1b24" stroke-width="1.5"/>
+  
+  <!-- Pedestal Column -->
+  <path d="M470 376 L480 325 L540 325 L550 376 Z" fill="url(#stone-grad)" stroke="#1c1b24" stroke-width="2"/>
+  <!-- Column carved runes -->
+  <line x1="495" y1="335" x2="495" y2="365" stroke="#928f9e" stroke-width="1.5"/>
+  <line x1="525" y1="335" x2="525" y2="365" stroke="#928f9e" stroke-width="1.5"/>
+  <circle cx="510" cy="350" r="4" fill="#d2b868"/>
+
+  <!-- Pedestal Table Top -->
+  <ellipse cx="510" cy="324" rx="55" ry="15" fill="#1c1b24"/>
+  <ellipse cx="510" cy="320" rx="52" ry="13" fill="#605e6e" stroke="#1c1b24" stroke-width="1.5"/>
+  <ellipse cx="510" cy="318" rx="46" ry="10" fill="#807d91"/>
+
+  <!-- Moss creeping on stone pedestal -->
+  <path d="M465 376 Q480 360 488 376 Z" fill="#2b3b2c"/>
+  <path d="M535 376 Q545 358 552 376 Z" fill="#2b3b2c"/>
+  <path d="M485 322 Q495 316 505 322 Z" fill="#2b3b2c"/>
+</svg>

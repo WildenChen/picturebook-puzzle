@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 170" width="100%" height="100%">
+  <defs>
+    <linearGradient id="owl-body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6b5344"/>
+      <stop offset="100%" stop-color="#423126"/>
+    </linearGradient>
+    <linearGradient id="owl-belly" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f4e8d3"/>
+      <stop offset="100%" stop-color="#dcbe99"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shadow / Perch contact -->
+  <ellipse cx="80" cy="156" rx="34" ry="7" fill="#141a24" opacity="0.6"/>
+
+  <!-- Ear tufts / horns -->
+  <polygon points="44,48 38,18 58,36" fill="#423126" stroke="#251a14" stroke-width="2"/>
+  <polygon points="116,48 122,18 102,36" fill="#423126" stroke="#251a14" stroke-width="2"/>
+
+  <!-- Plump Egg Body -->
+  <ellipse cx="80" cy="94" rx="46" ry="54" fill="url(#owl-body)" stroke="#251a14" stroke-width="2.5"/>
+
+  <!-- Wings folded on sides -->
+  <path d="M35 80 C32 108 42 134 54 140 C44 126 40 102 44 80 Z" fill="#38291f" stroke="#251a14" stroke-width="1.5"/>
+  <path d="M125 80 C128 108 118 134 106 140 C116 126 120 102 116 80 Z" fill="#38291f" stroke="#251a14" stroke-width="1.5"/>
+
+  <!-- Cream Belly with scalloped feather pattern -->
+  <ellipse cx="80" cy="108" rx="28" ry="36" fill="url(#owl-belly)"/>
+  <!-- Feather chevrons -->
+  <path d="M72 90 Q80 94 88 90" stroke="#87684e" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M66 104 Q74 108 82 104 Q90 108 96 104" stroke="#87684e" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M70 118 Q80 122 90 118" stroke="#87684e" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M74 132 Q80 135 86 132" stroke="#87684e" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- Big Wise Storybook Eye Rings -->
+  <circle cx="60" cy="62" r="20" fill="#edd6b1" stroke="#251a14" stroke-width="2"/>
+  <circle cx="100" cy="62" r="20" fill="#edd6b1" stroke="#251a14" stroke-width="2"/>
+
+  <!-- Amber Iris -->
+  <circle cx="61" cy="62" r="13" fill="#f5a431"/>
+  <circle cx="99" cy="62" r="13" fill="#f5a431"/>
+
+  <!-- Pupil -->
+  <circle cx="61" cy="62" r="7.5" fill="#1b120c"/>
+  <circle cx="99" cy="62" r="7.5" fill="#1b120c"/>
+
+  <!-- Sparkle -->
+  <circle cx="63.5" cy="59" r="2.5" fill="#ffffff"/>
+  <circle cx="101.5" cy="59" r="2.5" fill="#ffffff"/>
+
+  <!-- Golden beak -->
+  <polygon points="75,66 85,66 80,78" fill="#e59824" stroke="#251a14" stroke-width="1.5"/>
+
+  <!-- Claws / Talons (gripping branch) -->
+  <path d="M64 146 c0 4 -2 8 -6 8 m6 -8 c0 5 0 9 -2 9 m2 -9 c2 4 4 8 3 9" stroke="#df9020" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M96 146 c0 4 -2 8 -3 9 m3 -9 c0 5 0 9 2 9 m-2 -9 c2 4 4 8 6 8" stroke="#df9020" stroke-width="3" stroke-linecap="round" fill="none"/>
+</svg>

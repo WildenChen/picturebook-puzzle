@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 170" width="100%" height="100%">
+  <defs>
+    <linearGradient id="fox-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e86e30"/>
+      <stop offset="100%" stop-color="#b84614"/>
+    </linearGradient>
+    <linearGradient id="fox-tail" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ef7838"/>
+      <stop offset="100%" stop-color="#a33a0e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shadow -->
+  <ellipse cx="85" cy="156" rx="48" ry="9" fill="#141a24" opacity="0.6"/>
+
+  <!-- Big bushy tail behind -->
+  <path d="M102 125 C125 125 152 110 156 82 C158 60 144 48 132 50 C120 52 116 70 110 95 C106 108 100 118 95 125 Z" fill="url(#fox-tail)" stroke="#732709" stroke-width="2"/>
+  <!-- White tail tip -->
+  <path d="M142 50 C146 56 154 68 155 78 C150 72 144 74 138 68 C134 62 134 54 132 50 C136 49 139 49 142 50 Z" fill="#fff8ed" stroke="#732709" stroke-width="1.5"/>
+
+  <!-- Back Paws -->
+  <ellipse cx="64" cy="148" rx="14" ry="8" fill="#2d1b13"/>
+  <ellipse cx="112" cy="148" rx="14" ry="8" fill="#2d1b13"/>
+
+  <!-- Body (sitting plump fox) -->
+  <path d="M62 90 C50 115 50 145 68 150 C85 153 105 153 118 148 C128 140 125 110 112 90 Z" fill="url(#fox-body)" stroke="#732709" stroke-width="2"/>
+
+  <!-- White Chest / Bib -->
+  <path d="M74 92 C80 96 88 96 94 92 C100 108 102 128 84 140 C68 128 70 108 74 92 Z" fill="#fff9ee"/>
+
+  <!-- Front Paws (dark stockings) -->
+  <rect x="73" y="126" width="9" height="24" rx="4.5" fill="#2d1b13"/>
+  <rect x="88" y="126" width="9" height="24" rx="4.5" fill="#2d1b13"/>
+
+  <!-- Head -->
+  <path d="M52 64 C40 68 36 78 48 88 C62 98 84 104 96 98 C110 90 126 82 126 68 C124 55 95 56 86 58 C74 56 58 56 52 64 Z" fill="url(#fox-body)" stroke="#732709" stroke-width="2"/>
+
+  <!-- White Cheeks & Muzzle -->
+  <path d="M54 78 C62 92 78 98 86 98 C94 98 110 92 118 78 C112 74 104 76 96 78 C86 80 76 80 66 78 C60 76 56 75 54 78 Z" fill="#fff9ee"/>
+  <ellipse cx="86" cy="85" rx="6" ry="4.5" fill="#fff9ee"/>
+
+  <!-- Nose -->
+  <polygon points="82,85 90,85 86,90" fill="#221510"/>
+
+  <!-- Cute Expressive Eyes (gentle curious fox) -->
+  <ellipse cx="68" cy="72" rx="4" ry="5" fill="#221510"/>
+  <circle cx="69.5" cy="70" r="1.5" fill="#ffffff"/>
+  <ellipse cx="102" cy="72" rx="4" ry="5" fill="#221510"/>
+  <circle cx="103.5" cy="70" r="1.5" fill="#ffffff"/>
+
+  <!-- Ears (large storybook fox ears) -->
+  <!-- Left Ear -->
+  <polygon points="50,60 62,24 74,56" fill="url(#fox-body)" stroke="#732709" stroke-width="2"/>
+  <polygon points="54,56 62,32 70,54" fill="#2d1b13"/>
+  <polygon points="56,54 62,38 68,53" fill="#fff5ea"/>
+
+  <!-- Right Ear -->
+  <polygon points="96,56 108,24 120,60" fill="url(#fox-body)" stroke="#732709" stroke-width="2"/>
+  <polygon points="100,54 108,32 116,56" fill="#2d1b13"/>
+  <polygon points="102,53 108,38 114,54" fill="#fff5ea"/>
+</svg>

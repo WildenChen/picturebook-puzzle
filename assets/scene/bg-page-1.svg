@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sky-1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#151b33"/>
+      <stop offset="45%" stop-color="#242c4c"/>
+      <stop offset="85%" stop-color="#4a425b"/>
+      <stop offset="100%" stop-color="#5a4d63"/>
+    </linearGradient>
+    <radialGradient id="moon-glow-1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff8db" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#ffe699" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#e5c87a" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#e5c87a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="moon-body-1" cx="42%" cy="42%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#fff4cc"/>
+      <stop offset="100%" stop-color="#eed18e"/>
+    </radialGradient>
+    <linearGradient id="mist-1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#676b88" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#9392ab" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#2c3044" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="800" height="450" fill="url(#sky-1)"/>
+
+  <!-- Stars -->
+  <g fill="#f8e7b9" opacity="0.85">
+    <circle cx="85" cy="55" r="1.5"/><circle cx="140" cy="88" r="1.2"/>
+    <circle cx="210" cy="42" r="2"/><polygon points="210,38 211,41 214,42 211,43 210,46 209,43 206,42 209,41" fill="#fff7d6"/>
+    <circle cx="310" cy="72" r="1.5"/><circle cx="560" cy="45" r="1.2"/>
+    <circle cx="680" cy="65" r="2"/><polygon points="680,61 681,64 684,65 681,66 680,69 679,66 676,65 679,64" fill="#fff7d6"/>
+    <circle cx="740" cy="110" r="1.5"/><circle cx="440" cy="95" r="1.2"/>
+    <circle cx="615" cy="115" r="1"/>
+  </g>
+
+  <!-- Big Fairy Tale Moon -->
+  <circle cx="490" cy="100" r="110" fill="url(#moon-glow-1)"/>
+  <circle cx="490" cy="100" r="48" fill="url(#moon-body-1)"/>
+  <!-- Subtle moon craters / storybook texture -->
+  <circle cx="475" cy="85" r="8" fill="#e8c983" opacity="0.35"/>
+  <circle cx="505" cy="98" r="12" fill="#e8c983" opacity="0.25"/>
+  <circle cx="482" cy="118" r="6" fill="#e8c983" opacity="0.3"/>
+
+  <!-- Far Mountain silhouette -->
+  <path d="M-20 280 Q140 180 320 250 T660 210 Q740 230 820 260 L820 450 L-20 450 Z" fill="#2d334e" opacity="0.7"/>
+
+  <!-- Distant Pine Tree Line -->
+  <path d="M-10 290 
+    L15 260 L25 295 L50 255 L65 292 L100 248 L120 298 
+    L165 250 L185 292 L220 240 L240 290 L285 245 L310 295
+    L380 255 L405 292 L470 240 L490 288 L550 248 L575 292
+    L640 235 L665 285 L720 242 L745 290 L810 250 L820 450 L-10 450 Z" fill="#21273d"/>
+
+  <!-- Midground Rolling Hills -->
+  <path d="M-30 320 Q160 270 380 310 T830 300 L830 450 L-30 450 Z" fill="#1b2438"/>
+
+  <!-- Forest Mist -->
+  <rect y="260" width="800" height="60" fill="url(#mist-1)"/>
+
+  <!-- Midground Pine Trees & silhouettes -->
+  <!-- Left group -->
+  <polygon points="60,195 40,245 48,245 32,290 42,290 24,340 70,340 70,360 80,360 80,340 110,340 96,290 106,290 88,245 96,245" fill="#161e2f"/>
+  <polygon points="120,215 105,255 112,255 98,295 106,295 90,340 135,340 135,355 142,355 142,340 165,340 152,295 160,295 144,255 150,255" fill="#161e2f"/>
+  
+  <!-- Right trees framing moon -->
+  <polygon points="710,170 690,225 698,225 680,275 690,275 670,335 720,335 720,360 730,360 730,335 765,335 750,275 760,275 740,225 748,225" fill="#141a29"/>
+  <polygon points="640,205 625,250 632,250 618,290 626,290 610,335 655,335 655,350 662,350 662,335 685,335 672,290 680,290 665,250 672,250" fill="#161e2f"/>
+
+  <!-- Winding Forest Path -->
+  <path d="M260 450 Q360 380 430 350 T480 320 Q470 318 450 322 Q390 355 210 450 Z" fill="#2d3447" opacity="0.6"/>
+
+  <!-- Ground slope where characters stand -->
+  <path d="M-20 375 Q200 340 450 355 T820 365 L820 450 L-20 450 Z" fill="#171f2c"/>
+</svg>

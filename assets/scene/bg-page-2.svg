@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sky-2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f1629"/>
+      <stop offset="50%" stop-color="#1f2945"/>
+      <stop offset="100%" stop-color="#403953"/>
+    </linearGradient>
+    <radialGradient id="tree-glow-2" cx="45%" cy="60%" r="50%">
+      <stop offset="0%" stop-color="#ffdda1" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#caa458" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#caa458" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="hollow-dark" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#080c12"/>
+      <stop offset="70%" stop-color="#121824"/>
+      <stop offset="100%" stop-color="#241e1b"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="800" height="450" fill="url(#sky-2)"/>
+
+  <!-- Stars -->
+  <g fill="#f8e7b9" opacity="0.75">
+    <circle cx="70" cy="40" r="1.5"/><circle cx="150" cy="70" r="1.2"/>
+    <circle cx="230" cy="35" r="2"/><polygon points="230,31 231,34 234,35 231,36 230,39 229,36 226,35 229,34" fill="#fff7d6"/>
+    <circle cx="340" cy="65" r="1.5"/><circle cx="680" cy="40" r="1.2"/>
+    <circle cx="750" cy="80" r="1.5"/>
+  </g>
+
+  <!-- Distant Blue Ridge Hills -->
+  <path d="M-20 260 Q180 200 420 240 T820 220 L820 450 L-20 450 Z" fill="#1e2439"/>
+
+  <!-- Distant Tree Silhouettes -->
+  <path d="M-10 270 L10 235 L30 275 L60 225 L90 270 L140 230 L170 272 L230 220 L260 270 L720 230 L750 270 L800 235 L820 450 L-10 450 Z" fill="#151b2a"/>
+
+  <!-- Ground slope -->
+  <path d="M-20 360 Q240 330 500 345 T820 360 L820 450 L-20 450 Z" fill="#181f2b"/>
+
+  <!-- Ambient Golden Glow behind ancient tree -->
+  <circle cx="480" cy="270" r="180" fill="url(#tree-glow-2)"/>
+
+  <!-- THE GREAT ANCIENT GUARDIAN TREE (Center-Right) -->
+  <!-- Roots spreading deep into ground -->
+  <path d="M320 420 Q390 380 430 330 Q450 230 460 140 Q465 60 480 0 L560 0 Q560 80 575 160 Q600 240 650 340 Q710 390 800 430 L780 450 L300 450 Z" fill="#2c221d" stroke="#18120e" stroke-width="2"/>
+  
+  <!-- Massive left gnarled branch (Perch for owl) -->
+  <path d="M455 180 Q360 170 260 210 Q210 235 150 220 Q200 255 270 235 Q360 215 450 220 Z" fill="#241b17" stroke="#18120e" stroke-width="2"/>
+  <!-- Sub branch curling down -->
+  <path d="M280 228 Q240 260 200 275 Q235 275 270 242 Z" fill="#201713"/>
+
+  <!-- Massive right branch framing canopy -->
+  <path d="M570 160 Q660 140 760 170 Q690 190 580 200 Z" fill="#241b17"/>
+
+  <!-- Tree Bark Details & Grooves -->
+  <path d="M480 120 Q475 220 460 300 Q450 360 410 420" stroke="#1a1411" stroke-width="3" fill="none"/>
+  <path d="M520 80 Q515 200 520 280 Q530 360 560 430" stroke="#1a1411" stroke-width="3" fill="none"/>
+  <path d="M545 140 Q555 240 580 340" stroke="#1a1411" stroke-width="2.5" fill="none"/>
+
+  <!-- THE MYSTERIOUS TREE HOLLOW (Where the key rests or is revealed) -->
+  <ellipse cx="505" cy="315" rx="36" ry="48" fill="url(#hollow-dark)" stroke="#16100c" stroke-width="4"/>
+  <!-- Inner rim of moss & soft warm light inside hollow -->
+  <path d="M478 300 Q505 272 532 300 Q542 340 505 358 Q470 340 478 300 Z" fill="#0d1117" stroke="#52432c" stroke-width="2"/>
+  <!-- Fairy tale amber glow inside hollow -->
+  <ellipse cx="505" cy="325" rx="20" ry="24" fill="#f5c256" opacity="0.25"/>
+
+  <!-- Moss on tree roots -->
+  <path d="M380 400 Q430 380 460 395 Q440 415 390 415 Z" fill="#2a3928"/>
+  <path d="M600 395 Q640 375 670 390 Q650 410 610 410 Z" fill="#2a3928"/>
+</svg>

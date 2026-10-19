@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+  <!-- Left majestic tree framing clearing -->
+  <path d="M-20 450 L-20 120 Q50 160 80 240 Q110 200 130 140 Q110 240 100 340 Q130 330 150 450 Z" fill="#0b111a"/>
+  <!-- Foliage clouds -->
+  <ellipse cx="60" cy="140" rx="70" ry="45" fill="#090e15"/>
+  <ellipse cx="120" cy="170" rx="50" ry="35" fill="#0b111a"/>
+
+  <!-- Right ancient tree framing clearing -->
+  <path d="M820 450 L820 140 Q760 170 720 240 Q690 200 670 140 Q690 240 700 340 Q670 330 650 450 Z" fill="#0b111a"/>
+  <ellipse cx="740" cy="140" rx="70" ry="45" fill="#090e15"/>
+  <ellipse cx="680" cy="170" rx="50" ry="35" fill="#0b111a"/>
+
+  <!-- Top overarching branches meeting at top edges -->
+  <path d="M0 0 Q200 50 300 15 Q150 5 0 0 Z" fill="#090e15"/>
+  <path d="M800 0 Q600 50 500 15 Q650 5 800 0 Z" fill="#090e15"/>
+
+  <!-- Foreground flower meadows -->
+  <path d="M-20 450 Q200 415 400 420 T820 420 L820 450 Z" fill="#090e15"/>
+
+  <!-- Night-blooming magical star flowers in foreground -->
+  <g fill="#ffeaa7">
+    <!-- Flower 1 -->
+    <circle cx="210" cy="425" r="2.5"/><circle cx="206" cy="423" r="2"/><circle cx="214" cy="423" r="2"/>
+    <circle cx="208" cy="428" r="2"/><circle cx="212" cy="428" r="2"/><circle cx="210" cy="425" r="1.5" fill="#ff7675"/>
+    <!-- Flower 2 -->
+    <circle cx="340" cy="430" r="2.5"/><circle cx="336" cy="428" r="2"/><circle cx="344" cy="428" r="2"/>
+    <circle cx="338" cy="433" r="2"/><circle cx="342" cy="433" r="2"/><circle cx="340" cy="430" r="1.5" fill="#74b9ff"/>
+    <!-- Flower 3 -->
+    <circle cx="620" cy="428" r="2.5"/><circle cx="616" cy="426" r="2"/><circle cx="624" cy="426" r="2"/>
+    <circle cx="618" cy="431" r="2"/><circle cx="622" cy="431" r="2"/><circle cx="620" cy="428" r="1.5" fill="#ff7675"/>
+  </g>
+
+  <!-- Abundant glowing magical motes floating around the altar -->
+  <circle cx="490" cy="270" r="2.5" fill="#ffeaa7" opacity="0.9"/>
+  <circle cx="490" cy="270" r="8" fill="#ffeaa7" opacity="0.3"/>
+  <circle cx="535" cy="290" r="2" fill="#ffeaa7" opacity="0.85"/>
+  <circle cx="535" cy="290" r="6" fill="#ffeaa7" opacity="0.25"/>
+  <circle cx="440" cy="305" r="2" fill="#ffeaa7" opacity="0.8"/>
+  <circle cx="360" cy="330" r="2" fill="#ffeaa7" opacity="0.75"/>
+  <circle cx="280" cy="370" r="2" fill="#ffeaa7" opacity="0.85"/>
+</svg>
