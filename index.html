@@ -33,13 +33,17 @@
       <div class="book-shelf-row"><button id="openBook" class="book-tile" type="button" aria-label="閱讀月光森林">
         <div class="book-cover"><span class="cover-star">✦</span><span class="cover-art">☾</span><strong>月光森林</strong><small>第一卷 · 三頁故事</small></div>
         <span class="book-tile-caption">開始閱讀 <span aria-hidden="true">→</span></span>
+      </button>
+      <button id="openChatgptBook" class="book-tile" type="button" aria-label="閱讀月光森林 ChatGPT 插畫版">
+        <div class="book-cover chatgpt-cover"><strong>月光森林</strong><small>ChatGPT 插畫版</small></div>
+        <span class="book-tile-caption">開啟第二本 <span aria-hidden="true">→</span></span>
       </button></div><div class="shelf-plank"></div>
     </section>
     <div class="workspace" id="readingWorkspace" hidden>
       <section class="book" aria-label="互動故事">
         <div class="book-top">
           <button id="backToShelf" type="button" class="shelf-back">← 書架</button>
-          <span id="chapter">CHAPTER 01</span>
+          <span id="editionTitle" class="edition-title">Agnes 繪本版</span><span id="chapter">CHAPTER 01</span>
           <div id="dots" class="dots"></div>
           <span id="pagecount">1 / 3</span>
         </div>

@@ -1119,3 +1119,18 @@ footer {
 .book-cover strong,.book-cover small {position:relative;z-index:1;text-shadow:0 2px 9px #071126}
 .cover-art {font-size:62px}
 .stage-entity img.entity-illustration,.sticker-thumb{object-fit:contain}
+
+/* Second book is independent from the original Agnes edition. */
+.chatgpt-cover{background:linear-gradient(180deg,transparent 60%,#081324d9),url("assets/chatgpt/cover/moonlight-forest.webp") center/cover no-repeat}
+.chatgpt-cover strong,.chatgpt-cover small{position:relative;top:72px;color:#fff4cf;text-shadow:0 2px 8px #051128}
+.book-shelf-row{flex-wrap:wrap;gap:30px}
+.edition-title{font-size:10px;letter-spacing:0;color:#826642}
+.chatgpt-edition .stage-entity{max-width:38%;overflow:visible}
+.chatgpt-edition .entity-illustration{width:100%;height:100%;object-fit:contain}
+.chatgpt-edition .illustration{height:clamp(230px,32vw,380px)}
+.chatgpt-edition .stage-entity[data-slot="0"]{left:21%;bottom:1%;width:28%;height:69%}
+.chatgpt-edition .stage-entity[data-slot="1"]{left:59%;bottom:7%;width:23%;height:46%}
+.chatgpt-edition .stage-placeholder[data-slot="0"]{left:21%;bottom:1%;width:28%;height:69%}
+.chatgpt-edition .stage-placeholder[data-slot="1"]{left:59%;bottom:7%;width:23%;height:46%}
+@media(max-width:900px){.chatgpt-edition .illustration{height:clamp(220px,55vw,350px)}}
+@media(max-width:420px){.edition-title{font-size:9px}.book-top{flex-wrap:wrap}}

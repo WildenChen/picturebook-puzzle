@@ -78,6 +78,37 @@ const PAGES = [
   }
 ];
 
+// Each shelf edition has its own assets and independent save slot.
+const AGNES_STICKERS = STICKERS.map(item => ({...item}));
+const AGNES_PAGES = PAGES.map(page => ({...page}));
+const EDITIONS = {
+  agnes: {stickers:AGNES_STICKERS, pages:AGNES_PAGES, key:"moonforest-story-v1"},
+  chatgpt: {
+    stickers:AGNES_STICKERS.map(item => ({...item,src:"assets/chatgpt/"+(item.kind==="character"?"characters/":"props/")+item.id+".webp"})),
+    pages:AGNES_PAGES.map((page,index) => ({...page,bg:"assets/chatgpt/scene/bg-page-"+(index+1)+".webp"})),
+    key:"moonforest-story-chatgpt-v1"
+  }
+};
+let currentEdition="agnes";
+function switchEdition(id) {
+  if (!EDITIONS[id]) return;
+  saveEdition();
+  currentEdition=id;
+  STICKERS.splice(0,STICKERS.length,...EDITIONS[id].stickers);
+  PAGES.splice(0,PAGES.length,...EDITIONS[id].pages);
+  state=loadEdition();
+  document.getElementById("editionTitle").textContent=id==="agnes"?"Agnes 繪本版":"ChatGPT 插畫版";
+  document.getElementById("readingWorkspace").classList.toggle("chatgpt-edition",id==="chatgpt");
+  render();
+}
+function loadEdition() {
+  let saved={};
+  try { saved=JSON.parse(localStorage.getItem(EDITIONS[currentEdition].key))||{}; } catch {}
+  return {page:Math.max(0,Math.min(2,Number(saved.page)||0)),placements:saved.placements||{},selected:null,checked:saved.checked||{}};
+}
+function saveEdition() {
+  try { localStorage.setItem(EDITIONS[currentEdition].key,JSON.stringify({...state,selected:null})); } catch {}
+}
 const KEY = "moonforest-story-v1";
 const $ = id => document.getElementById(id);
 
@@ -102,7 +133,7 @@ try {
 
 function saved() {
   try {
-    localStorage.setItem(KEY, JSON.stringify({ ...state, selected: null }));
+    localStorage.setItem(EDITIONS[currentEdition].key, JSON.stringify({ ...state, selected: null }));
   } catch (e) {}
 }
 
@@ -426,7 +457,8 @@ function showBook(open) {
   shelf.hidden = open;
   readingWorkspace.hidden = !open;
 }
-document.getElementById("openBook").addEventListener("click", () => showBook(true));
+document.getElementById("openBook").addEventListener("click", () => { switchEdition("agnes"); showBook(true); });
+document.getElementById("openChatgptBook").addEventListener("click", () => { switchEdition("chatgpt"); showBook(true); });
 document.getElementById("backToShelf").addEventListener("click", () => showBook(false));
 showBook(false);
 
