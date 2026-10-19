@@ -17,11 +17,13 @@ function render(){
 const p=state.page, data=PAGES[p],values=[entry(p,0),entry(p,1)].map(v=>STICKERS.find(s=>s.id===v)?.name);
 $("chapter").textContent="CHAPTER 0"+(p+1);$("pagecount").textContent=(p+1)+" / 3";$("kicker").textContent=data.kicker;$("page-title").textContent=data.title;$("story").textContent=data.story(values);
 $("hint").textContent=data.hint;
-const sceneItems=[entry(p,0),entry(p,1)].map(id=>STICKERS.find(s=>s.id===id)).filter(Boolean);
-$("sceneEmoji").innerHTML=sceneItems.length
-  ? sceneItems.map((item,i)=>`<span class="scene-item" aria-label="${item.name}" title="${item.name}">${item.emoji}</span>`).join("")
-  : `<span class="scene-item scene-placeholder">${data.scene}</span>`;
-$("sceneEmoji").setAttribute("aria-label",sceneItems.length?sceneItems.map(s=>s.name).join("、"):"尚未放置貼紙");
+const sceneItems=[entry(p,0),entry(p,1)].map(id=>STICKERS.find(s=>s.id===id));
+$("sceneEmoji").innerHTML=sceneItems.some(Boolean)
+  ? sceneItems.map((item,i)=>item
+      ? `<span class="forest-actor forest-actor-${i}" title="${item.name}"><span class="actor-art">${item.emoji}</span><span class="actor-name">${item.name}</span></span>`
+      : `<span class="forest-actor forest-empty"><span class="actor-art">＋</span><span class="actor-name">等待貼紙</span></span>`).join("")
+  : '<span class="forest-instruction">把貼紙放進故事，角色就會走進森林</span>';
+$("sceneEmoji").setAttribute("aria-label",sceneItems.filter(Boolean).map(s=>s.name).join("、")||"尚未放置貼紙");
 $("dots").innerHTML=PAGES.map((_,i)=>'<span class="dot '+(i===p?'active':'')+'"></span>').join("");
 $("slots").innerHTML=data.labels.map((label,i)=>{const selected=STICKERS.find(s=>s.id===entry(p,i));return `<button class="slot ${selected?'filled':''}" data-slot="${i}" aria-label="${label}，${selected?selected.name:'未放置'}"><span class="symbol">${selected?selected.emoji:'＋'}</span><small>${selected?selected.name:label}</small></button>`;}).join("");
 $("stickers").innerHTML=STICKERS.map(s=>`<button class="sticker ${state.selected===s.id?'selected':''}" draggable="true" data-id="${s.id}" aria-pressed="${state.selected===s.id}"><span class="symbol">${s.emoji}</span><span>${s.name}</span></button>`).join("");
