@@ -28,9 +28,17 @@
       <p>選擇一張貼紙，再放進故事的空白處。每個選擇，都會改寫這段旅程。</p>
     </section>
 
-    <div class="workspace">
+    <section class="bookshelf" id="bookshelf" aria-label="故事書架">
+      <div class="shelf-heading"><span class="section-label">THE STORY COLLECTION</span><h2>我的故事書架</h2><p>挑選一本故事，開始一段奇妙旅程。</p></div>
+      <div class="book-shelf-row"><button id="openBook" class="book-tile" type="button" aria-label="閱讀月光森林">
+        <div class="book-cover"><span class="cover-star">✦</span><span class="cover-art">☾</span><strong>月光森林</strong><small>第一卷 · 三頁故事</small></div>
+        <span class="book-tile-caption">開始閱讀 <span aria-hidden="true">→</span></span>
+      </button></div><div class="shelf-plank"></div>
+    </section>
+    <div class="workspace" id="readingWorkspace" hidden>
       <section class="book" aria-label="互動故事">
         <div class="book-top">
+          <button id="backToShelf" type="button" class="shelf-back">← 書架</button>
           <span id="chapter">CHAPTER 01</span>
           <div id="dots" class="dots"></div>
           <span id="pagecount">1 / 3</span>

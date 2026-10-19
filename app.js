@@ -419,6 +419,17 @@ function updateTrayLayout() {
 portraitLayout.addEventListener("change", updateTrayLayout);
 updateTrayLayout();
 
+// Library entrance; the existing story state and save key are unchanged.
+const shelf = document.getElementById("bookshelf");
+const readingWorkspace = document.getElementById("readingWorkspace");
+function showBook(open) {
+  shelf.hidden = open;
+  readingWorkspace.hidden = !open;
+}
+document.getElementById("openBook").addEventListener("click", () => showBook(true));
+document.getElementById("backToShelf").addEventListener("click", () => showBook(false));
+showBook(false);
+
 // 啟動渲染
 render();
 
