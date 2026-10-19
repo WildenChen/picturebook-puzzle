@@ -1,0 +1,5 @@
+/* Original Peter Pan scene composition: [left%, bottom%, width%].
+   Each position is calibrated for its background. Incorrect stickers
+   retain the slot center while using their own size profile. */
+window.PETER_SCENE_LAYOUTS = [[[20,8,23],[55,14,14]],[[12,7,25],[62,26,16]],[[22,8,23],[40,19,11]],[[22,49,13],[39,56,9]],[[29,44,16],[58,71,9]],[[75,8,15],[70,25,12]],[[35,8,22],[53,11,8]],[[15,8,27],[46,23,28]],[[25,8,19],[52,30,11]],[[15,8,23],[67,12,12]],[[59,13,18],[26,19,12]],[[35,17,16],[68,12,20]],[[63,7,26],[28,32,11]],[[62,8,22],[46,24,23]],[[69,8,20],[60,13,12]],[[13,7,23],[52,17,9]],[[49,32,13],[27,7,22]],[[52,26,14],[62,20,10]],[[24,9,20],[55,17,11]],[[27,9,20],[58,9,23]],[[60,30,12],[70,31,9]],[[22,8,19],[45,30,22]],[[19,8,28],[66,14,21]],[[22,46,16],[53,9,19]]];
+window.PETER_STICKER_WIDTHS = {"peter":17,"wendy":17,"john":16,"michael":15,"tinker":12,"mother":20,"nana":20,"lost_boys":24,"hook":20,"tiger_lily":18,"crocodile":21,"never_bird":15,"jane":17,"shadow":14,"sewing":9,"acorn":7,"pixiedust":9,"star":10,"map":12,"cottage":25,"storybook":12,"clock":10,"rope":12,"nest":19,"plate":10,"window":21,"bag":11,"poison":8,"helm":11,"bed":19,"arrow":8};

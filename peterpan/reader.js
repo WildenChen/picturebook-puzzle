@@ -22,23 +22,13 @@
   }
   let state = readState();
   const chapterNames = ["一","二","三","四","五","六"];
-  // Anchor: [left %, bottom %, width %]. Stored relative to the source 4:3
-  // picture, so characters and props always scale with their illustration.
-  // Anchor slots are independent of sticker type: either can hold ANY sticker.
-  const ANCHORS = [
-    [[23,9,21],[59,17,15]],[[28,9,19],[58,20,17]],
-    [[25,10,21],[45,12,11]],[[28,43,13],[56,46,12]],
-    [[25,36,14],[57,55,11]],[[29,10,20],[61,16,14]],
-    [[26,11,19],[44,24,9]],[[23,10,21],[58,12,21]],
-    [[26,10,21],[57,15,14]],[[28,10,23],[59,18,12]],
-    [[28,14,20],[55,18,13]],[[27,31,15],[55,16,21]],
-    [[25,9,24],[58,17,12]],[[27,10,21],[61,23,16]],
-    [[26,10,21],[59,15,14]],[[27,12,22],[59,19,10]],
-    [[27,46,12],[57,10,20]],[[27,13,20],[58,26,12]],
-    [[26,10,22],[58,17,12]],[[24,10,24],[58,10,23]],
-    [[27,11,22],[59,17,19]],[[26,10,22],[58,25,19]],
-    [[25,11,24],[57,12,21]],[[26,44,13],[58,12,19]]
-  ];
+  // Page-specific, image-reviewed positions; do not revert to one global
+  // character/prop formula when a different illustration is shown.
+  const ANCHORS = window.PETER_SCENE_LAYOUTS;
+  const STICKER_WIDTHS = window.PETER_STICKER_WIDTHS;
+  if (!Array.isArray(ANCHORS) || ANCHORS.length !== pages.length) {
+    throw new Error("Peter Pan scene layout configuration missing");
+  }
   function save() {
     try {localStorage.setItem(STORAGE_KEY, JSON.stringify({...state, selected:null}));} catch {}
   }
@@ -68,14 +58,18 @@
     render();
   }
   function stagePosition(page,slot,id) {
-    const [left,bottom,width] = ANCHORS[page][slot];
+    const [baseLeft,bottom,baseWidth] = ANCHORS[page][slot];
     const item = byId[id];
-    const kind = item?.kind || (slot === 0 ? "character" : "prop");
-    const aspect = kind === "character" ? .75 : 1;
-    const maxHeight = 65;
-    // Keep source character whole: scene W/H=4:3, avatar H/W=4:3.
-    const height = Math.min(maxHeight, width*4/(3*aspect));
-    return {left,bottom,width,height};
+    const isExpected = !item || pages[page].answer[slot] === id;
+    // For an incorrect combination, keep the anchor's visual center but
+    // size the actual image by its identity rather than its destination slot.
+    const width = isExpected ? baseWidth
+      : Math.min(23, STICKER_WIDTHS[id] || (item.kind === "character" ? 15 : 9));
+    const left = Math.max(0, Math.min(100 - width,
+      baseLeft + (baseWidth - width)/2));
+    const aspect = item?.kind === "character" || (!item && slot === 0) ? .75 : 1;
+    const height = Math.min(68, width * 4 / (3 * aspect));
+    return {left,bottom:Math.min(bottom,100-height),width,height};
   }
   function inlinePos({left,bottom,width,height}) {
     return `left:${left}%;bottom:${bottom}%;width:${width}%;height:${height}%;`;
