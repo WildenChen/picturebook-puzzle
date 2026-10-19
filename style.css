@@ -1134,3 +1134,31 @@ footer {
 .chatgpt-edition .stage-placeholder[data-slot="1"]{left:59%;bottom:7%;width:23%;height:46%}
 @media(max-width:900px){.chatgpt-edition .illustration{height:clamp(220px,55vw,350px)}}
 @media(max-width:420px){.edition-title{font-size:9px}.book-top{flex-wrap:wrap}}
+
+/* Both editions: artwork uses a 4:3 coordinate canvas, matching every background image.
+   No viewport-dependent cropping or fixed-pixel sticker placement. */
+.book .illustration,
+.book .chatgpt-edition .illustration,
+.chatgpt-edition .illustration {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+}
+.illustration .stage-bg { background-size: 100% 100%; background-position: center; }
+/* Reset all legacy per-sticker coordinates: placement now follows the story slot,
+   not a hardcoded screen size or sticker type. */
+.illustration .stage-entity[data-slot="0"],
+.illustration .stage-placeholder[data-slot="0"],
+.chatgpt-edition .stage-entity[data-slot="0"],
+.chatgpt-edition .stage-placeholder[data-slot="0"] {
+  left: 22%; right: auto; top: auto; bottom: 8%;
+  width: 22%; height: 55%; max-width: none;
+}
+.illustration .stage-entity[data-slot="1"],
+.illustration .stage-placeholder[data-slot="1"],
+.chatgpt-edition .stage-entity[data-slot="1"],
+.chatgpt-edition .stage-placeholder[data-slot="1"] {
+  left: 58%; right: auto; top: auto; bottom: 13%;
+  width: 20%; height: 37%; max-width: none;
+}
+.illustration .stage-entity .entity-illustration { width: 100%; height: 100%; object-fit: contain; }
