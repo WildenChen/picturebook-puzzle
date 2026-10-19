@@ -33,3 +33,8 @@ python3 scripts/agnes_draw.py --prompt "A friendly little fox, full-body isolate
 ```
 
 執行後會呼叫 Agnes API，可能消耗 API 額度，圖片保存在 `art-drafts/`（已加入 `.gitignore`）。腳本**不會自動更新遊戲素材或推送 GitHub**；先檢查生成圖，再自行挑選、去背並移入 `assets/`。此指令為開發工具，並非公開網站的即時繪圖功能。
+
+
+## 雙版本場景構圖定位
+
+`app.js` 的 `SCENE_COMPOSITION` 分別定義 Agnes／ChatGPT 兩版各三頁的構圖錨點：`[left%, bottom%, width%]`，相對於 4:3 的場景圖片。人物／道具實際高度依原圖片長寬比計算。答案貼紙成對放置時採 `pair` 錨點（例如第一頁手持提燈、第三頁故事書位於石台）；其他組合由 `slots` 依貼紙種類提供合理尺寸和位置，**不限制人物或道具必須放在哪一格**。拖曳至背景或選貼紙後點擊背景，會選擇最接近的故事放置點。編修場景構圖請調整 `SCENE_COMPOSITION`，勿再加入固定像素版 `.actor-*` / `.prop-*` 覆寫。

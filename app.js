@@ -109,6 +109,57 @@ function loadEdition() {
 function saveEdition() {
   try { localStorage.setItem(EDITIONS[currentEdition].key,JSON.stringify({...state,selected:null})); } catch {}
 }
+// Hand-reviewed anchors measured against each ORIGINAL 4:3 background.
+// Entries: [left %, bottom %, width %] of the illustration.
+// Sticker height is computed from the source aspect ratio (not screen pixels).
+// A correct pair may compose together; partial/wrong answers retain usable
+// independent positions. Neither half restricts the kind of sticker it accepts.
+const SCENE_COMPOSITION = {
+  agnes: [
+    { slots: [
+        {character:[25,11,24], prop:[26,14,11]},
+        {character:[59,11,20], prop:[58,14,10]}
+      ], pair:[[25,11,24],[36.5,13,10]] },
+    { slots: [
+        {character:[28,15,18], prop:[29,14,10]},
+        {character:[56,13,19], prop:[42,14,9]}
+      ], pair:[[28,15,18],[42,16,11]] },
+    { slots: [
+        {character:[40,10,22], prop:[54,12,12]},
+        {character:[17,13,18], prop:[19,58,13]}
+      ], pair:[[40,10,22],[19,58,13]] }
+  ],
+  chatgpt: [
+    { slots: [
+        {character:[25,10,24], prop:[26,13,11]},
+        {character:[59,11,19], prop:[59,14,10]}
+      ], pair:[[25,10,24],[39.5,14,10]] },
+    { slots: [
+        {character:[24,13,18], prop:[27,13,10]},
+        {character:[58,12,18], prop:[41,15,9]}
+      ], pair:[[24,13,18],[41,15,11]] },
+    { slots: [
+        {character:[42,11,21], prop:[55,12,11]},
+        {character:[22,11,18], prop:[27,43,12]}
+      ], pair:[[42,11,21],[27,43,12]] }
+  ]
+};
+
+function stagePosition(pageIndex, slot, item) {
+  const scene = SCENE_COMPOSITION[currentEdition][pageIndex];
+  const kind = item ? item.kind : (slot === 1 ? "prop" : "character");
+  const solvedPair = PAGES[pageIndex].answer.every((id, i) => entry(pageIndex, i) === id);
+  const [left, bottom, width] = solvedPair ? scene.pair[slot] : scene.slots[slot][kind];
+  const aspect = kind === "character" ? 3 / 4 : 1;
+  // The background canvas is exactly 4:3 at every breakpoint.
+  const height = width * 4 / (3 * aspect);
+  return {left, bottom, width, height};
+}
+function stagePositionStyle(position) {
+  return ["left:"+position.left+"%", "bottom:"+position.bottom+"%",
+          "width:"+position.width+"%", "height:"+position.height+"%",
+          "right:auto", "top:auto", "max-width:none"].join(";");
+}
 const KEY = "moonforest-story-v1";
 const $ = id => document.getElementById(id);
 
@@ -151,10 +202,19 @@ function put(slot, id) {
 }
 
 // 場景左、右為兩個可填入任意貼紙的故事區塊，不限制人物或物品。
-function resolveStageSlot(clientX, stageEl) {
+function resolveStageSlot(clientX, stageEl, clientY) {
   const rect = stageEl.getBoundingClientRect();
-  const relX = (clientX - rect.left) / rect.width;
-  return relX < 0.5 ? 0 : 1;
+  const x = (clientX - rect.left) / rect.width * 100;
+  const y = (rect.bottom - (clientY ?? rect.top + rect.height / 2)) / rect.height * 100;
+  const scores = [0, 1].map(slot => {
+    const id = entry(state.page, slot);
+    const item = STICKERS.find(sticker => sticker.id === id);
+    const pos = stagePosition(state.page, slot, item);
+    const centerX = pos.left + pos.width / 2;
+    const centerY = pos.bottom + pos.height / 2;
+    return (x-centerX)**2 + (y-centerY)**2;
+  });
+  return scores[0] <= scores[1] ? 0 : 1;
 }
 
 function renderScene(p, data) {
@@ -178,7 +238,8 @@ function renderScene(p, data) {
   const renderSlotActor = (slotIdx, item) => {
     if (!item) {
       const layout = data.slotsLayout[slotIdx];
-      return `<div class="stage-placeholder ${layout.defaultClass}" data-slot="${slotIdx}">
+      const place = stagePosition(p, slotIdx, null);
+      return `<div class="stage-placeholder ${layout.defaultClass}" data-slot="${slotIdx}" style="${stagePositionStyle(place)}">
         <div class="placeholder-halo"></div>
         <span class="placeholder-hint">＋ ${layout.defaultLabel}</span>
       </div>`;
@@ -188,7 +249,8 @@ function renderScene(p, data) {
     const custom = data.customPlacement[customKey] || {};
     const posClass = custom.className || data.slotsLayout[slotIdx].defaultClass;
 
-    return `<div class="stage-entity ${posClass} entity-${item.id}" data-slot="${slotIdx}" title="點擊取下貼紙">
+    const place = stagePosition(p, slotIdx, item);
+    return `<div class="stage-entity ${posClass} entity-${item.id}" data-slot="${slotIdx}" style="${stagePositionStyle(place)}" title="點擊取下貼紙">
       <img src="${item.src}" alt="${item.name}" class="entity-illustration" draggable="false" />
       <span class="entity-badge">${item.name}</span>
     </div>`;
@@ -264,8 +326,15 @@ function renderScene(p, data) {
     });
   });
 
-  // 5. 整座上方插畫舞台也能直接作為拖放區（直覺拖進森林任意處）
+  // 5. Entire illustration is the interaction surface. Select a sticker,
+  // then tap/click anywhere in the scene; the nearest story anchor receives it.
   const stage = $("illustration");
+  stage.onclick = e => {
+    if (!state.selected) return;
+    const target = e.target.closest("[data-slot]");
+    const slot = target ? Number(target.dataset.slot) : resolveStageSlot(e.clientX, stage, e.clientY);
+    put(slot, state.selected);
+  };
   stage.ondragover = e => {
     e.preventDefault();
     stage.classList.add("stage-dragover");
@@ -289,7 +358,7 @@ function renderScene(p, data) {
     }
 
     // 未命中預留區塊時，按落點左右選擇故事區塊，不按貼紙類型分配。
-    const slot = resolveStageSlot(e.clientX, stage);
+    const slot = resolveStageSlot(e.clientX, stage, e.clientY);
     put(slot, id);
   };
 
@@ -398,7 +467,7 @@ function render() {
           // 情況 B：落在上方插畫舞台本體或其子層內（直覺拖進森林）
           const stageTarget = touchedEl?.closest("#illustration");
           if (stageTarget) {
-            const slot = resolveStageSlot(e.clientX, stageTarget);
+            const slot = resolveStageSlot(e.clientX, stageTarget, e.clientY);
             put(slot, el.dataset.id);
           }
         }
