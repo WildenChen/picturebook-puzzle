@@ -120,7 +120,9 @@ function put(slot, id) {
 }
 
 // 根據游標或觸控點座標，智慧判定落於場景的第幾個插槽（左側角色 slot 0，右側道具 slot 1）
-function resolveStageSlot(clientX, stageEl) {
+function resolveStageSlot(clientX, stageEl, stickerId) {
+  const sticker = STICKERS.find(s => s.id === stickerId);
+  if (sticker) return sticker.kind === "prop" ? 1 : 0;
   const rect = stageEl.getBoundingClientRect();
   const relX = (clientX - rect.left) / rect.width;
   return relX < 0.5 ? 0 : 1;
@@ -173,7 +175,7 @@ function renderScene(p, data) {
       e.stopPropagation();
       if (state.selected) {
         // 若手上已有選取的貼紙，直接替換
-        put(slot, state.selected);
+        put(STICKERS.find(s => s.id === state.selected)?.kind === "prop" ? 1 : 0, state.selected);
       } else {
         delete state.placements[`${p}-${slot}`];
         delete state.checked[p];
@@ -197,7 +199,7 @@ function renderScene(p, data) {
       e.stopPropagation();
       el.classList.remove("dragover");
       const id = e.dataTransfer.getData("text/plain");
-      if (id) put(slot, id);
+      if (id) put(STICKERS.find(s => s.id === id)?.kind === "prop" ? 1 : 0, id);
     });
   });
 
@@ -208,7 +210,7 @@ function renderScene(p, data) {
     el.addEventListener("click", e => {
       e.stopPropagation();
       if (state.selected) {
-        put(slot, state.selected);
+        put(STICKERS.find(s => s.id === state.selected)?.kind === "prop" ? 1 : 0, state.selected);
       }
     });
 
@@ -226,7 +228,7 @@ function renderScene(p, data) {
       e.stopPropagation();
       el.classList.remove("dragover");
       const id = e.dataTransfer.getData("text/plain");
-      if (id) put(slot, id);
+      if (id) put(STICKERS.find(s => s.id === id)?.kind === "prop" ? 1 : 0, id);
     });
   });
 
@@ -250,12 +252,12 @@ function renderScene(p, data) {
     // 若直接落在特定的 slot 或 placeholder 上，由該子元素的 drop 處理
     const directTarget = e.target.closest("[data-slot]");
     if (directTarget) {
-      put(Number(directTarget.dataset.slot), id);
+      put(STICKERS.find(s => s.id === id)?.kind === "prop" ? 1 : 0, id);
       return;
     }
 
     // 否則依據在舞台中的左右位置判定角色（左）或物件（右）
-    const slot = resolveStageSlot(e.clientX, stage);
+    const slot = resolveStageSlot(e.clientX, stage, id);
     put(slot, id);
   };
 
@@ -398,12 +400,12 @@ function render() {
         // 情況 A：落在帶有 data-slot 的元素上（下方空格、插畫中的預留位、或已存在的角色實體）
         const directTarget = touchedEl?.closest("[data-slot]");
         if (directTarget) {
-          put(Number(directTarget.dataset.slot), el.dataset.id);
+          put(STICKERS.find(s => s.id === el.dataset.id)?.kind === "prop" ? 1 : 0, el.dataset.id);
         } else {
           // 情況 B：落在上方插畫舞台本體或其子層內（直覺拖進森林）
           const stageTarget = touchedEl?.closest("#illustration");
           if (stageTarget) {
-            const slot = resolveStageSlot(e.clientX, stageTarget);
+            const slot = resolveStageSlot(e.clientX, stageTarget, el.dataset.id);
             put(slot, el.dataset.id);
           }
         }

@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="zh-Hant">
 <head>
@@ -5,7 +7,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#302d43">
   <title>月光森林｜故事拼圖</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css?v={{ site.github.build_revision }}">
 </head>
 <body>
   <main class="shell">
@@ -83,8 +85,8 @@
       </aside>
     </div>
 
-    <footer>一段關於勇氣、信任與月光的原創小故事 · 離線也能玩</footer>
+    <footer>一段關於勇氣、信任與月光的原創小故事 · 離線也能玩 <span style="display:block;margin-top:8px;font-size:11px">目前發布版本：<a href="https://github.com/WildenChen/picturebook-puzzle/commit/{{ site.github.build_revision }}" style="color:inherit" id="buildVersion">{{ site.github.build_revision | slice: 0, 7 }}</a></span></footer>
   </main>
-  <script src="./app.js" defer></script>
+  <script src="./app.js?v={{ site.github.build_revision }}" defer></script>
 </body>
 </html>
