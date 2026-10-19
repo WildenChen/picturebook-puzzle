@@ -1113,3 +1113,9 @@ footer {
 .shelf-plank{height:18px;margin:5px auto 0;background:linear-gradient(#977151,#694c42);border-bottom:5px solid #3b2b34;border-radius:3px;box-shadow:0 8px 12px #0006;max-width:560px}
 .shelf-back{font:600 11px -apple-system,BlinkMacSystemFont,sans-serif;color:#76552f;background:#e2ccaa;border:1px solid #c0a276;border-radius:14px;padding:5px 9px;cursor:pointer}
 @media(max-width:600px){.bookshelf{padding:18px 12px}.shelf-heading h2{font-size:24px}.book-cover{width:160px;height:215px}.book-top{gap:5px;padding:10px 8px}.shelf-back{font-size:10px}}
+
+/* Painted illustrations produced locally via Agnes. */
+.book-cover { background:linear-gradient(to bottom,rgba(7,14,32,.04),rgba(5,10,23,.67)), url("assets/painted/scene-1.webp") center/cover no-repeat; }
+.book-cover strong,.book-cover small {position:relative;z-index:1;text-shadow:0 2px 9px #071126}
+.cover-art {font-size:62px}
+.stage-entity img.entity-illustration,.sticker-thumb{object-fit:contain}

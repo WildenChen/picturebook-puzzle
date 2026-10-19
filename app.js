@@ -1,11 +1,11 @@
 // 貼紙定義與素材對應
 const STICKERS = [
-  { id: "girl", name: "小女孩", kind: "character", src: "assets/characters/girl.svg", emoji: "👧" },
-  { id: "fox", name: "小狐狸", kind: "character", src: "assets/characters/fox.svg", emoji: "🦊" },
-  { id: "owl", name: "貓頭鷹", kind: "character", src: "assets/characters/owl.svg", emoji: "🦉" },
-  { id: "lantern", name: "提燈", kind: "prop", src: "assets/props/lantern.svg", emoji: "🏮" },
-  { id: "key", name: "金鑰匙", kind: "prop", src: "assets/props/key.svg", emoji: "🗝️" },
-  { id: "book", name: "故事書", kind: "prop", src: "assets/props/book.svg", emoji: "📖" }
+  { id: "girl", name: "小女孩", kind: "character", src: "assets/painted/girl.webp", emoji: "👧" },
+  { id: "fox", name: "小狐狸", kind: "character", src: "assets/painted/fox.webp", emoji: "🦊" },
+  { id: "owl", name: "貓頭鷹", kind: "character", src: "assets/painted/owl.webp", emoji: "🦉" },
+  { id: "lantern", name: "提燈", kind: "prop", src: "assets/painted/lantern.webp", emoji: "🏮" },
+  { id: "key", name: "金鑰匙", kind: "prop", src: "assets/painted/key.webp", emoji: "🗝️" },
+  { id: "book", name: "故事書", kind: "prop", src: "assets/painted/book.webp", emoji: "📖" }
 ];
 
 // 每頁的場景設定與插畫層級定位
@@ -16,7 +16,7 @@ const PAGES = [
     hint: "線索：她帶著光，來尋找失落的秘密。",
     answer: ["girl", "lantern"],
     labels: ["誰來到森林？", "帶著什麼？"],
-    bg: "assets/scene/bg-page-1.svg",
+    bg: "assets/painted/scene-1.webp",
     fg: "assets/scene/fg-page-1.svg",
     slotsLayout: [
       { defaultClass: "pos-page1-actor", defaultLabel: "造訪森林的旅人" },
@@ -38,7 +38,7 @@ const PAGES = [
     hint: "線索：夜晚的守護者，替她找出開啟秘密的物件。",
     answer: ["owl", "key"],
     labels: ["誰守護著樹洞？", "交出了什麼？"],
-    bg: "assets/scene/bg-page-2.svg",
+    bg: "assets/painted/scene-2.webp",
     fg: "assets/scene/fg-page-2.svg",
     slotsLayout: [
       { defaultClass: "pos-page2-actor", defaultLabel: "守護樹洞的身影" },
@@ -60,7 +60,7 @@ const PAGES = [
     hint: "線索：最初的旅人，終於找到記載約定的東西。",
     answer: ["girl", "book"],
     labels: ["誰完成了旅程？", "找到什麼？"],
-    bg: "assets/scene/bg-page-3.svg",
+    bg: "assets/painted/scene-3.webp",
     fg: "assets/scene/fg-page-3.svg",
     slotsLayout: [
       { defaultClass: "pos-page3-actor", defaultLabel: "迎來結局的旅人" },
@@ -136,7 +136,7 @@ function renderScene(p, data) {
   $("stageBg").style.backgroundImage = `url('${data.bg}')`;
 
   // 2. 前景層
-  $("stageFg").style.backgroundImage = `url('${data.fg}')`;
+  $("stageFg").style.backgroundImage = "none";
 
   // 3. 角色與物件層（分層插畫系統）
   let actorsHtml = "";
