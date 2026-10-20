@@ -1204,3 +1204,9 @@ footer {
 .peterpan-cover strong,.peterpan-cover small{position:relative;top:61px;z-index:1;text-shadow:0 3px 9px #051020;color:#ffedbe}
 .peterpan-cover strong{font-size:25px}.peterpan-cover small{line-height:1.3}
 .peterpan-link{text-decoration:none;display:block}.peterpan-link:focus-visible{outline:3px solid #f5cc89;outline-offset:4px;border-radius:10px}
+
+/* Fourth independent picture-book pilot, pastel sticker illustrations. */
+.sticker-demo-cover{background:linear-gradient(180deg,#f9d5a85e,#38577773),url("sticker-demo/art/forest.svg") center/cover no-repeat;border-color:#edd9ad;border-left-color:#8db3ab}
+.sticker-demo-cover strong,.sticker-demo-cover small{position:relative;top:69px;z-index:1;color:#fff9e7;text-shadow:0 2px 5px #35586d}
+.sticker-demo-cover strong{font-size:26px}.sticker-demo-link{display:block;text-decoration:none}
+.sticker-demo-link:focus-visible{outline:3px solid #f5c985;outline-offset:4px;border-radius:10px}
