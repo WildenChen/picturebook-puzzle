@@ -57,19 +57,21 @@
     save();
     render();
   }
+  // Every role has a fixed visual frame. The image identity must never
+  // change the occupied area: correct and incorrect placements are equal sized.
+  const SCENE_ROLES = window.PETER_SCENE_ROLES;
+  const ROLE_VARIANTS = window.PETER_ROLE_VARIANTS;
   function stagePosition(page,slot,id) {
-    const [baseLeft,bottom,baseWidth] = ANCHORS[page][slot];
-    const item = byId[id];
-    const isExpected = !item || pages[page].answer[slot] === id;
-    // For an incorrect combination, keep the anchor's visual center but
-    // size the actual image by its identity rather than its destination slot.
-    const width = isExpected ? baseWidth
-      : Math.min(2, STICKER_WIDTHS[id] || (item.kind === "character" ? 15 : 9));
-    const left = Math.max(0, Math.min(100 - width,
-      baseLeft + (baseWidth - width)/2));
-    const aspect = item?.kind === "character" || (!item && slot === 0) ? .75 : 1;
-    const height = Math.min(68, width * 4 / (3 * aspect));
+    const [left,bottom,width]=ANCHORS[page][slot];
+    // All stickers use the same 200×260 transparent canvas and 4:3 background.
+    // No item-specific width, kind-based height or "correct" size branch.
+    const height=Math.min(68,width*4/(3*.75));
     return {left,bottom:Math.min(bottom,100-height),width,height};
+  }
+  function sceneStickerSrc(page,slot,id) {
+    const role=SCENE_ROLES[page][slot];
+    const file=ROLE_VARIANTS[role]?.[id];
+    return file ? "./sticker-demo/art/"+file : byId[id].src;
   }
   function inlinePos({left,bottom,width,height}) {
     return `left:${left}%;bottom:${bottom}%;width:${width}%;height:${height}%;`;
@@ -143,7 +145,7 @@
         button.title="點擊取下或替換："+item.name;
         button.setAttribute("aria-label","放置區"+(slot+1)+"："+item.name+"，點擊取下");
         const img=document.createElement("img");
-        img.src=item.src;img.alt=item.name;
+        img.src=sceneStickerSrc(state.page,slot,id);img.alt=item.name;
         img.onerror=()=>{img.hidden=true;button.textContent="✦ "+item.name;};
         button.append(img);
         const lab=document.createElement("small");lab.textContent=item.name;button.append(lab);

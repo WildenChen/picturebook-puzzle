@@ -1,2 +1,4 @@
 window.PETER_SCENE_LAYOUTS=[[[20, 9, 25], [54, 9, 18]], [[28, 22, 22], [58, 21, 15]], [[16, 9, 28], [45, 12, 28]]];
-window.PETER_STICKER_WIDTHS={"wendy": 24, "shadow": 16, "peter": 24, "dust": 16, "boys": 24, "house": 16};
+window.PETER_STICKER_WIDTHS={"wendy": 24, "peter": 24, "boys": 24, "shadow": 24, "dust": 24, "house": 24};
+window.PETER_SCENE_ROLES=[["room_visitor", "room_discovery"], ["sky_flyer", "sky_magic"], ["forest_helper", "forest_result"]];
+window.PETER_ROLE_VARIANTS={"sky_flyer": {"peter": "peter-flying.svg", "wendy": "wendy-flying.svg", "boys": "boys-flying.svg", "shadow": "shadow-flying.svg", "dust": "dust-flying.svg", "house": "house-flying.svg"}, "sky_magic": {"peter": "peter-flying.svg", "wendy": "wendy-flying.svg", "boys": "boys-flying.svg", "shadow": "shadow-flying.svg", "dust": "dust-flying.svg", "house": "house-flying.svg"}, "room_discovery": {"shadow": "shadow-floor.svg"}, "forest_helper": {"boys": "boys-building.svg"}};
