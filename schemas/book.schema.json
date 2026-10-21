@@ -1,0 +1,316 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://picturebook-puzzle.local/schemas/book.schema.json",
+  "title": "Book Package v1",
+  "description": "經典童書互動畫冊的書籍封包格式。欄位集合為封閉集合：未知欄位一律拒絕，避免 schema 以外的可執行內容混入。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "bookId",
+    "title",
+    "source",
+    "artStyleId",
+    "chapters",
+    "stickers",
+    "pages",
+    "rules",
+    "narratives",
+    "narration"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "bookId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,63}$" },
+    "title": { "$ref": "#/$defs/localizedText" },
+    "source": { "$ref": "#/$defs/source" },
+    "artStyleId": { "type": "string", "minLength": 1 },
+    "chapters": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/chapter" }
+    },
+    "stickers": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/sticker" }
+    },
+    "pages": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/page" }
+    },
+    "rules": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/rule" }
+    },
+    "narratives": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/narrative" }
+    },
+    "narration": { "$ref": "#/$defs/narration" },
+    "assets": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/asset" }
+    }
+  },
+  "$defs": {
+    "localizedText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["zh-Hant"],
+      "properties": {
+        "zh-Hant": { "type": "string", "minLength": 1 }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["work", "author", "edition", "rightsReview"],
+      "properties": {
+        "work": { "type": "string", "minLength": 1 },
+        "author": { "type": "string", "minLength": 1 },
+        "edition": { "type": "string", "minLength": 1 },
+        "rightsReview": { "enum": ["pending", "approved", "rejected"] },
+        "draftOrigin": { "enum": ["ai-generated", "human-authored", "unknown"] },
+        "rightsApprovedBy": { "type": "string" },
+        "rightsApprovedAt": { "type": "string" },
+        "translation": { "type": "string" },
+        "translationCredit": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "chapter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "pageIds"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+        "title": { "$ref": "#/$defs/localizedText" },
+        "pageIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" }
+        }
+      }
+    },
+    "sticker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "defaultAsset"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+        "label": { "$ref": "#/$defs/localizedText" },
+        "storyLabel": { "type": "string" },
+        "kind": { "enum": ["character", "prop", "creature"] },
+        "defaultAsset": { "$ref": "#/$defs/assetPath" },
+        "variants": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/assetPath" }
+        }
+      }
+    },
+    "frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["left", "bottom", "width", "height"],
+      "properties": {
+        "left": { "type": "number", "minimum": 0, "maximum": 100 },
+        "bottom": { "type": "number", "minimum": 0, "maximum": 100 },
+        "width": { "type": "number", "exclusiveMinimum": 0, "maximum": 100 },
+        "height": { "type": "number", "exclusiveMinimum": 0, "maximum": 100 }
+      }
+    },
+    "slot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "role", "frame", "hint"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+        "role": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+        "frame": { "$ref": "#/$defs/frame" },
+        "hint": { "$ref": "#/$defs/localizedText" }
+      }
+    },
+    "paragraphPart": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["text", "slot"] },
+        "value": { "type": "string" },
+        "slotId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" }
+      }
+    },
+    "paragraph": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "parts"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+        "parts": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/paragraphPart" }
+        }
+      }
+    },
+    "page": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "chapterId", "sceneAsset", "sceneRole", "slots", "paragraphs", "ruleIds"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+        "chapterId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+        "title": { "$ref": "#/$defs/localizedText" },
+        "kicker": { "type": "string" },
+        "clue": { "$ref": "#/$defs/localizedText" },
+        "sceneAsset": { "$ref": "#/$defs/assetPath" },
+        "sceneRole": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+        "slots": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/slot" }
+        },
+        "paragraphs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/paragraph" }
+        },
+        "ruleIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" }
+        }
+      }
+    },
+    "condition": {
+      "type": "object",
+      "minProperties": 1,
+      "oneOf": [
+        { "required": ["always"] },
+        { "required": ["all"] },
+        { "required": ["any"] },
+        { "required": ["not"] },
+        { "required": ["slotEquals"] },
+        { "required": ["slotEmpty"] },
+        { "required": ["slotFilled"] },
+        { "required": ["factEquals"] },
+        { "required": ["factMissing"] }
+      ],
+      "properties": {
+        "always": { "const": true },
+        "all": { "type": "array", "items": { "$ref": "#/$defs/condition" } },
+        "any": { "type": "array", "items": { "$ref": "#/$defs/condition" } },
+        "not": { "$ref": "#/$defs/condition" },
+        "slotEquals": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "type": "string" }
+        },
+        "slotEmpty": { "type": "string" },
+        "slotFilled": { "type": "string" },
+        "factEquals": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "type": ["string", "boolean", "number"] }
+        },
+        "factMissing": { "type": "string" }
+      }
+    },
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "pageId", "priority", "when", "then"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+        "pageId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+        "priority": { "type": "integer", "minimum": 0, "maximum": 1000 },
+        "group": { "enum": ["main", "decoration"] },
+        "when": { "$ref": "#/$defs/condition" },
+        "then": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["eventId"],
+          "properties": {
+            "eventId": { "type": "string", "pattern": "^[a-z][A-Za-z0-9]*(-[A-Za-z0-9]+)*$" },
+            "setFacts": { "type": "object" },
+            "clearFacts": { "type": "array", "items": { "type": "string" } },
+            "narrativeId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+            "variantOverrides": {
+              "type": "object",
+              "additionalProperties": { "type": "string" }
+            },
+            "feedback": { "$ref": "#/$defs/localizedText" },
+            "visualState": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "mood": { "type": "string" },
+                "accent": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "narrative": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "pageId", "paragraphs"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+        "pageId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+        "paragraphs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/paragraph" }
+        }
+      }
+    },
+    "narrationSegment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "paragraphId", "speakerId", "locale"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+        "paragraphId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,63}$" },
+        "variantNarrativeId": { "type": ["string", "null"] },
+        "speakerId": { "type": "string" },
+        "locale": { "type": "string", "minLength": 2 },
+        "spokenText": { "type": ["string", "null"] },
+        "audioAsset": { "type": ["string", "null"] },
+        "timings": { "type": ["array", "null"] }
+      }
+    },
+    "narration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "segments"],
+      "properties": {
+        "version": { "const": 1 },
+        "segments": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/narrationSegment" }
+        }
+      }
+    },
+    "assetPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*\\.\\.)[A-Za-z0-9._/-]+$"
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "kind", "rightsReview"],
+      "properties": {
+        "path": { "$ref": "#/$defs/assetPath" },
+        "kind": { "enum": ["scene", "sticker", "audio"] },
+        "rightsReview": { "enum": ["pending", "approved", "rejected"] },
+        "author": { "type": "string" },
+        "provenance": { "type": "string" }
+      }
+    }
+  }
+}
