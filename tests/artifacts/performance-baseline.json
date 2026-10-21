@@ -1,31 +1,31 @@
 {
-  "measuredAt": "2026-10-21T06:57:01.023Z",
+  "measuredAt": "2026-10-21T07:07:05.555Z",
   "machine": "darwin arm64 node v24.16.0",
   "readerUrl": "http://127.0.0.1:8791/reader-pilot.html",
   "readerLoad": {
-    "measuredWallClockMs": 97,
+    "measuredWallClockMs": 94,
     "navigation": {
-      "domContentLoaded": 50.69999998807907,
-      "loadEvent": 50.89999997615814,
-      "responseEnd": 1.899999976158142,
+      "domContentLoaded": 51.60000002384186,
+      "loadEvent": 51.80000001192093,
+      "responseEnd": 2,
       "transferSize": 4710
     }
   },
   "placementLatencyMs": {
     "samples": [
       3,
+      2,
+      2,
       1,
-      3,
-      2,
-      2,
-      3
+      1,
+      1
     ],
-    "median": 2.5,
+    "median": 1.5,
     "max": 3
   },
   "stateRecomputeMs": {
     "iterations": 200,
-    "totalMs": 2.6,
+    "totalMs": 2.5,
     "perCallMs": 0.01
   },
   "network": {
@@ -40,7 +40,7 @@
     "assetCount": 17
   },
   "editor": {
-    "importAndExportMs": 32,
+    "importAndExportMs": 34,
     "exportZipBytes": 93499,
     "entryCount": 18,
     "ok": true

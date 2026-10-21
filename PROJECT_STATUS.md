@@ -131,7 +131,7 @@
 | AC-012 | 邊界、資源與安全 | **Pass** | 惡意 SVG（`script`／`onload`／外部參照）全部被拒；`..` 路徑與外部 URL 被拒；同 priority 穩定排序有測試；無 `eval`、無外呼 API、無 `innerHTML` |
 | AC-013 | 音訊契約檢查 | **Pass** | 60 個 narration segment，`speakerId`／`locale`／`audioAsset`／`timings` 皆為 nullable typed 欄位；段落可映射到對應 segment |
 | AC-014 | 本機構建、部署預覽與版本回滾 | **Pass**（本機） | `tests/rollback-check.js` 16/16：以基準 SHA `6394cde` 的靜態版本掛在同源 `/baseline/`，三個舊入口仍可讀；現行版寫入的新 v1 存檔在回滾與恢復往返後內容完全一致，基準版未刪除也未寫入新 key。部署仍屬獨立授權關卡 |
-| AC-015 | 基礎效能與費用界限 | **Pass**（基線已錄） | 實測基線（`tests/artifacts/performance-baseline.json`）：閱讀器載入 91 ms（DOMContentLoaded 49.7 ms）、貼紙放置中位 1.5 ms／最大 5 ms、全書狀態重算每次 0.01 ms、閱讀期網路請求 22 筆全為本機靜態資源且無任何模型／外部端點呼叫、封包合計 91,406 B（book.json 77,843 B＋素材 13,563 B）、編輯器匯入＋ZIP 輸出 32 ms／93,464 B。未設定捏造的硬性門檻 |
+| AC-015 | 基礎效能與費用界限 | **Pass**（基線已錄） | 實測基線（`tests/artifacts/performance-baseline.json`）：閱讀器載入 94 ms（DOMContentLoaded 51.6 ms）、貼紙放置中位 1.5 ms／最大 3 ms、全書狀態重算每次 0.01 ms、閱讀期網路請求 22 筆全為本機靜態資源且無任何模型／外部端點呼叫、封包合計 91,441 B（book.json 77,878 B＋素材 13,563 B）、編輯器匯入＋ZIP 輸出 34 ms／93,499 B。未設定捏造的硬性門檻 |
 
 ### 尚缺證據
 
