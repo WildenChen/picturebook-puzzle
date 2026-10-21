@@ -1,0 +1,48 @@
+{
+  "measuredAt": "2026-10-21T06:57:01.023Z",
+  "machine": "darwin arm64 node v24.16.0",
+  "readerUrl": "http://127.0.0.1:8791/reader-pilot.html",
+  "readerLoad": {
+    "measuredWallClockMs": 97,
+    "navigation": {
+      "domContentLoaded": 50.69999998807907,
+      "loadEvent": 50.89999997615814,
+      "responseEnd": 1.899999976158142,
+      "transferSize": 4710
+    }
+  },
+  "placementLatencyMs": {
+    "samples": [
+      3,
+      1,
+      3,
+      2,
+      2,
+      3
+    ],
+    "median": 2.5,
+    "max": 3
+  },
+  "stateRecomputeMs": {
+    "iterations": 200,
+    "totalMs": 2.6,
+    "perCallMs": 0.01
+  },
+  "network": {
+    "totalRequests": 22,
+    "externalRequests": [],
+    "modelLikeRequests": []
+  },
+  "package": {
+    "bookJsonBytes": 77878,
+    "assetBytes": 13563,
+    "totalBytes": 91441,
+    "assetCount": 17
+  },
+  "editor": {
+    "importAndExportMs": 32,
+    "exportZipBytes": 93499,
+    "entryCount": 18,
+    "ok": true
+  }
+}
