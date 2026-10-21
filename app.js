@@ -529,9 +529,12 @@ function showBook(open) {
   shelf.hidden = open;
   readingWorkspace.hidden = !open;
 }
-document.getElementById("openBook").addEventListener("click", () => { switchEdition("agnes"); showBook(true); });
-document.getElementById("openChatgptBook").addEventListener("click", () => { switchEdition("chatgpt"); showBook(true); });
-document.getElementById("backToShelf").addEventListener("click", () => showBook(false));
+const openBookBtn = document.getElementById("openBook");
+if (openBookBtn) openBookBtn.addEventListener("click", () => { switchEdition("agnes"); showBook(true); });
+const openChatgptBtn = document.getElementById("openChatgptBook");
+if (openChatgptBtn) openChatgptBtn.addEventListener("click", () => { switchEdition("chatgpt"); showBook(true); });
+const backToShelfBtn = document.getElementById("backToShelf");
+if (backToShelfBtn) backToShelfBtn.addEventListener("click", () => showBook(false));
 showBook(false);
 
 // 啟動渲染

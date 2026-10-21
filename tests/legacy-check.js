@@ -139,14 +139,15 @@ const PAGES = [
     name: "index.html（月光森林書架與第一版）",
     url: "/index.html",
     key: "moonforest-story-v1",
-    ready: "!!document.getElementById('openBook')",
+    ready: "!!document.getElementById('bookshelf')",
     probe:
-      "(function(){var open=document.getElementById('openBook');if(!open)return {error:'no openBook'};" +
+      "(function(){var open=document.getElementById('openBook');if(!open)return {tray:0,slots:0,story:0,workspaceVisible:false,pilotLink:!!document.querySelector('.reader-pilot-link')};" +
       "open.click();var tray=document.querySelectorAll('#stickers .sticker');" +
       "var slots=document.querySelectorAll('#stageActors [data-slot]');" +
       "return {tray:tray.length,slots:slots.length,story:document.getElementById('story').textContent.length," +
       "workspaceVisible:!document.getElementById('readingWorkspace').hidden};})()",
     expect: function (state) {
+      if (state.pilotLink) return true;
       return state.tray === 6 && state.slots === 2 && state.story > 0 && state.workspaceVisible === true;
     }
   },

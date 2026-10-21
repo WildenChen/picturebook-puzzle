@@ -71,6 +71,29 @@
       img.alt = sticker.label["zh-Hant"];
       img.loading = "lazy";
       button.append(img, document.createTextNode(sticker.label["zh-Hant"]));
+      button.draggable = true;
+      button.addEventListener("dragstart", (e) => {
+        e.dataTransfer.setData("text/plain", sticker.id);
+        e.dataTransfer.effectAllowed = "copy";
+      });
+      let pointer = null;
+      button.addEventListener("pointerdown", (e) => {
+        if (e.pointerType === "mouse") return;
+        pointer = { x: e.clientX, y: e.clientY };
+      });
+      button.addEventListener("pointerup", (e) => {
+        if (!pointer) return;
+        const moved = Math.hypot(e.clientX - pointer.x, e.clientY - pointer.y) > 15;
+        pointer = null;
+        if (moved && els.stage && els.stage.contains(document.elementFromPoint(e.clientX, e.clientY))) {
+          const touchedEl = document.elementFromPoint(e.clientX, e.clientY);
+          const directBox = touchedEl && touchedEl.closest(".slot-box");
+          const targetSlotId = directBox ? directBox.dataset.slotId : nearestSlotId(e.clientX, e.clientY);
+          if (targetSlotId) {
+            putSticker(targetSlotId, sticker.id);
+          }
+        }
+      });
       button.addEventListener("click", () => {
         selectedStickerId = selectedStickerId === sticker.id ? null : sticker.id;
         render();
@@ -126,6 +149,16 @@
         box.classList.add("is-empty");
       }
       box.addEventListener("click", () => onSlotClick(pageId, slot));
+      box.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      });
+      box.addEventListener("drop", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const stickerId = e.dataTransfer.getData("text/plain");
+        if (stickerId) putSticker(slot.id, stickerId);
+      });
       actors.append(box);
     });
 
@@ -192,6 +225,40 @@
 
   /* ---------- interaction ---------- */
 
+  function nearestSlotId(clientX, clientY) {
+    const pageId = currentPage();
+    const page = pageById(pageId);
+    const slots = page ? page.slots || [] : [];
+    if (!slots.length) return null;
+    const stageRect = els.stage.getBoundingClientRect();
+    const xp = ((clientX - stageRect.left) / stageRect.width) * 100;
+    const yp = ((stageRect.bottom - clientY) / stageRect.height) * 100;
+    let nearest = slots[0].id;
+    let minDistance = Infinity;
+    slots.forEach((slot) => {
+      const f = slot.frame;
+      const cx = f.left + f.width / 2;
+      const cy = f.bottom + f.height / 2;
+      const dist = (xp - cx) ** 2 + (yp - cy) ** 2;
+      if (dist < minDistance) {
+        minDistance = dist;
+        nearest = slot.id;
+      }
+    });
+    return nearest;
+  }
+
+  function putSticker(slotId, stickerId) {
+    const pageId = currentPage();
+    const stickerExists = (book.stickers || []).some((s) => s.id === stickerId);
+    if (!stickerExists) return;
+    placements[pageId] = placements[pageId] || {};
+    placements[pageId][slotId] = stickerId;
+    selectedStickerId = null;
+    persist();
+    render();
+  }
+
   function onSlotClick(pageId, slot) {
     const current = (placements[pageId] || {})[slot.id];
     if (selectedStickerId) {
@@ -238,6 +305,7 @@
 
   function bind() {
     els.reader = $("reader");
+    els.stage = $("stage");
     els.chapterNav = $("chapterNav");
     els.storyText = $("storyText");
     els.storyNote = $("storyNote");
@@ -262,6 +330,17 @@
     els.nextPage.addEventListener("click", () => goToPage(pageIndex + 1));
     els.resetPage.addEventListener("click", resetPage);
     els.resetBook.addEventListener("click", resetBook);
+
+    els.stage.addEventListener("dragover", (e) => e.preventDefault());
+    els.stage.addEventListener("drop", (e) => {
+      e.preventDefault();
+      const stickerId = e.dataTransfer.getData("text/plain");
+      if (stickerId) {
+        const directBox = e.target.closest(".slot-box");
+        const slotId = directBox ? directBox.dataset.slotId : nearestSlotId(e.clientX, e.clientY);
+        if (slotId) putSticker(slotId, stickerId);
+      }
+    });
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "ArrowLeft") goToPage(pageIndex - 1);
