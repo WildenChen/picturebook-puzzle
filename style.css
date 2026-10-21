@@ -1210,3 +1210,9 @@ footer {
 .sticker-demo-cover strong,.sticker-demo-cover small{position:relative;top:69px;z-index:1;color:#fff9e7;text-shadow:0 2px 5px #35586d}
 .sticker-demo-cover strong{font-size:26px}.sticker-demo-link{display:block;text-decoration:none}
 .sticker-demo-link:focus-visible{outline:3px solid #f5c985;outline-offset:4px;border-radius:10px}
+
+/* Fifth bookshelf entry: Peter Pan sticker pilot powered by the shared v1 runtime. */
+.reader-pilot-cover{background:linear-gradient(180deg,#1b253b66,#101625cc),url("books/peterpan-sticker-pilot/assets/forest.svg") center/cover no-repeat;border-color:#e4c798;border-left-color:#6584a2}
+.reader-pilot-cover strong,.reader-pilot-cover small{position:relative;top:65px;z-index:1;color:#fff9e7;text-shadow:0 2px 6px #101926}
+.reader-pilot-cover strong{font-size:25px}.reader-pilot-link{display:block;text-decoration:none}
+.reader-pilot-link:focus-visible{outline:3px solid #f5cc89;outline-offset:4px;border-radius:10px}
