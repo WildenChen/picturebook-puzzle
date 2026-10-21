@@ -1,0 +1,84 @@
+/* Shared Reader Runtime styles (v1 pilot).
+   Deliberately self-contained so the shared runtime does not depend on any
+   book's own stylesheet. */
+:root{--ink:#292a34;--night:#1a2035;--paper:#fbf5e6;--gold:#d2a668;--line:#d8c6a8;--muted:#827761}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:#f4eee2;background:radial-gradient(circle at 70% 5%,#394259,#1a2035 57%,#171726);font-family:system-ui,-apple-system,"PingFang TC","Noto Sans TC",sans-serif}
+button,a{-webkit-tap-highlight-color:transparent}
+button{cursor:pointer;font:inherit}
+a{color:inherit;text-decoration:none}
+.shell{width:min(1240px,100%);margin:0 auto;padding:22px 22px 44px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.back,.muted{border:1px solid #706478;background:#ffffff0b;border-radius:24px;color:#e8ddcf;padding:9px 16px;font-size:13px}
+.back:hover,.muted:hover{background:#ffffff20}
+.brand{display:flex;gap:11px;align-items:center;font:600 21px Georgia,serif;letter-spacing:2px}
+.brand small{display:block;font:500 9px system-ui,sans-serif;color:#c4b8bd;letter-spacing:3px;padding-top:4px}
+.star{border:1px solid #d0a871;color:#f1cea2;padding:12px;border-radius:14px}
+.book-heading{text-align:center;margin:18px auto 25px}
+.book-heading h1{font:500 clamp(30px,4vw,47px) Georgia,"Noto Serif TC",serif;color:#f8edda;letter-spacing:3px;margin:9px 0}
+.book-heading h1 span{font-size:.67em;margin-left:8px}
+.book-heading>p:last-child{color:#cfc2bb;font-size:13px}
+.eyebrow,.tiny{font:600 10px system-ui,sans-serif;letter-spacing:2px;color:var(--gold)}
+.chapter-nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px auto}
+.chapter-nav button{border:1px solid #ffffff21;background:#292b42;color:#d9c8b9;padding:10px 13px;border-radius:21px;font-size:12px}
+.chapter-nav button.is-current{background:var(--gold);border-color:var(--gold);color:#2a2632;font-weight:700}
+.chapter-nav button:focus-visible,.sticker-chip:focus-visible,.slot-box:focus-visible,.reading-controls button:focus-visible,.reset-book:focus-visible{outline:3px solid #f2ca78;outline-offset:2px}
+.workspace{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(280px,.83fr);gap:22px;align-items:start}
+.reading-book{min-width:0;border:8px solid #d4b883;border-radius:18px;background:var(--paper);color:var(--ink);box-shadow:0 16px 32px #060a1d77;overflow:hidden}
+.page-head{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:13px 22px;background:#f0e3c7;border-bottom:1px solid var(--line);color:#8a6940;font-weight:700;font-size:11px;letter-spacing:1.5px}
+.story-copy{padding:24px clamp(18px,4vw,38px) 17px;background:linear-gradient(180deg,#fdf7ec,#f9f1df);text-align:center}
+.story-eyebrow{font-size:11px;letter-spacing:3px;color:#aa854a;font-weight:700}
+.story-copy h2{font:500 clamp(23px,3vw,31px) Georgia,"Noto Serif TC",serif;color:#2d3440;margin:9px 0 13px}
+.story-text{text-align:left;font:400 clamp(14px,1.35vw,16px)/1.95 Georgia,"Noto Serif TC",serif;letter-spacing:.03em;max-width:700px;margin:auto}
+.story-text p{margin:0 0 13px;text-indent:2em;overflow-wrap:anywhere}
+.story-text p:last-child{margin-bottom:0}
+.story-note{max-width:630px;margin:12px auto 0;color:#8a6244;font-size:12px;line-height:1.6;min-height:20px}
+.stage-shell{border-top:1px solid #d4c19e;border-bottom:1px solid #d4c19e;background:#1c2541}
+.stage{position:relative;aspect-ratio:4/3;width:100%;overflow:hidden;isolation:isolate;touch-action:pan-y}
+.scene-background{display:block;width:100%;height:100%;position:absolute;inset:0;object-fit:fill;z-index:0}
+.stage-wash{pointer-events:none;position:absolute;inset:0;box-shadow:inset 0 -14px 28px #14172455;z-index:1}
+.stage-actors{position:absolute;inset:0;z-index:2;pointer-events:none}
+/* Slot boxes own their fixed frame; image identity never changes the box size. */
+.slot-box{position:absolute;pointer-events:auto;border:2px dashed #ffe1a7a1;border-radius:14px;background:radial-gradient(#ffdf8a44,transparent 70%);display:flex;align-items:center;justify-content:center;padding:0;appearance:none;-webkit-appearance:none;background-color:transparent;overflow:visible}
+/* Empty-slot hint: rendered as a free-standing chip centred on the frame so a
+   narrow slot never squeezes the label into a vertical column. The frame
+   itself (dashed box) is untouched, so slot geometry stays constant. */
+.slot-box.is-empty span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max-content;max-width:min(190%,240px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:#17233cbf;color:#fff3d4;border-radius:16px;font-size:11px;padding:5px 9px;pointer-events:none}
+.slot-box.is-filled{border-color:#ffffff40;background:none;cursor:pointer}
+.slot-box.is-filled img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}
+.slot-box:hover{filter:drop-shadow(0 4px 8px #0007)}
+.stage-help{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);font-size:11px;color:#fff4df;background:#141f37ba;border:1px solid #ffea9b7a;padding:6px 13px;border-radius:20px;pointer-events:none;z-index:3;white-space:nowrap}
+.reading-controls{display:flex;align-items:center;justify-content:space-between;gap:7px;padding:15px;background:#f0e3ca}
+.reading-controls button{border:0;background:transparent;color:#937449;font-size:13px;padding:11px 13px;border-radius:8px;white-space:nowrap}
+.reading-controls button:disabled{opacity:.3;cursor:default}
+.feedback{padding:0 20px;background:#f0e3ca;color:#8a6244;text-align:center;font-size:13px}
+.feedback:not(:empty){padding:12px}
+.toolbox{padding:23px 22px 19px;border:1px solid #4a4760;border-radius:17px;background:#282b42;box-shadow:0 13px 30px #080b1940}
+.toolbox-top{display:flex;justify-content:space-between;align-items:center}
+.toolbox h3{margin:6px 0;font:500 24px Georgia,"Noto Serif TC",serif}
+.count{border:1px solid #6f697a;color:#c6b9bb;border-radius:25px;padding:6px 10px;font-size:11px}
+.toolbox-help{line-height:1.8;font-size:12px;color:#c3bbce;margin:12px 0 17px}
+.sticker-tray{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.sticker-chip{min-width:0;background:#353952;border:1px solid #4e5675;border-radius:12px;padding:7px 4px 8px;color:#f5e3c4;display:flex;align-items:center;flex-direction:column;gap:5px;font-size:11px}
+.sticker-chip:hover,.sticker-chip.is-selected{border-color:#edc878;background:#4b4658}
+.sticker-chip.is-selected{box-shadow:0 0 0 1px #edc878 inset}
+.sticker-chip img{width:min(100%,66px);height:67px;object-fit:contain;filter:drop-shadow(0 3px 3px #10152899)}
+.clue-box{border-top:1px solid #59556c;margin-top:19px;padding-top:17px;font-size:12px;color:#d6cbd1}
+.clue-box span{color:#e5bc7b}
+.clue-box p{line-height:1.7}
+.completion{margin:24px 0 0;font-size:12px;color:#d3c4ce}
+.completion>div:first-child{display:flex;justify-content:space-between;gap:8px}
+.completion b{color:#f3bf7c}
+.meter{height:7px;margin-top:10px;background:#51506a;border-radius:8px;overflow:hidden}
+.meter>div{height:100%;width:0%;background:linear-gradient(90deg,#b8835d,#e5bb75);transition:width .25s}
+.reset-book{display:block;margin:19px 0 0;border:0;background:transparent;color:#aaa0b4;font-size:11px;text-decoration:underline}
+footer{text-align:center;font-size:11px;color:#aaa3b5;line-height:2;margin-top:28px}
+/* Two-colour inline hints; filled slots switch to the second colour. */
+.story-token-hint,.story-token-filled{font-weight:700;padding:1px .16em;margin:0 .04em;border-radius:4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.story-token-hint{background:#fff0cf;border-bottom:2px dashed #c78934;color:#995618}
+.story-token-filled{background:#e6eefb;border-bottom:2px solid #7695cb;color:#254a81}
+.story-token-hint[data-story-slot="1"]{background:#eee9fa;border-bottom-color:#9879c2;color:#654587}
+@media(max-width:900px){.shell{padding:12px 12px 35px}.workspace{grid-template-columns:1fr;gap:0}.reading-book{border-width:5px}.toolbox{border:0;border-radius:0;background:#30334c;box-shadow:none;padding:16px}.story-copy{padding:18px 17px 11px}.story-text{font-size:15px;line-height:1.85}.sticker-tray{grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}.sticker-chip{padding:5px 2px}.sticker-chip img{width:42px;height:43px}.toolbox-help{margin:6px 0 11px}.toolbox h3{font-size:18px}.chapter-nav{gap:5px}.chapter-nav button{padding:8px 9px;font-size:11px}.book-heading h1{font-size:30px}}
+@media(max-width:530px){.shell{padding:10px 8px 28px}.topbar{gap:5px}.brand{font-size:16px}.brand small{font-size:7px;letter-spacing:2px}.star{padding:8px}.back,.muted{padding:6px 9px;font-size:11px}.back span{display:none}.book-heading{margin:21px auto 10px}.book-heading h1{font-size:25px}.book-heading h1 span{font-size:.70em;display:block;margin-left:0}.book-heading>p:last-child{font-size:11px}.chapter-nav button{flex:1 0 30%;padding:8px 5px}.page-head{padding:11px;font-size:10px}.reading-controls{gap:2px;padding:8px}.reading-controls button{padding:9px 5px;font-size:11px}.sticker-chip img{width:34px;height:36px}.sticker-chip{font-size:9px}.story-text{font-size:14px}.story-copy h2{font-size:23px}.stage-help{bottom:6px;font-size:10px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
