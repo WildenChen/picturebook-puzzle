@@ -1,0 +1,73 @@
+/* Local authoring tool styles (v1 pilot).
+   Self-contained: the editor must not depend on any book's stylesheet. */
+:root{--ink:#2a2c38;--night:#1a2035;--paper:#fbf5e6;--gold:#d2a668;--line:#d8c6a8;--muted:#827761;--ok:#3f9d6d;--bad:#c4574f}
+*{box-sizing:border-box}
+body{margin:0;color:#f4eee2;background:radial-gradient(circle at 70% 5%,#394259,#1a2035 57%,#171726);font-family:system-ui,-apple-system,"PingFang TC","Noto Sans TC",sans-serif}
+button,a,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.shell{width:min(1500px,100%);margin:0 auto;padding:20px 20px 46px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.topbar h1{margin:0;font:500 24px Georgia,"Noto Serif TC",serif;letter-spacing:2px}
+.topbar small{display:block;font:500 9px system-ui,sans-serif;color:#c4b8bd;letter-spacing:3px;padding-top:4px}
+.tag{font:600 10px system-ui,sans-serif;letter-spacing:2px;color:var(--gold)}
+.layout{display:grid;grid-template-columns:minmax(320px,420px) minmax(0,1fr);gap:20px;align-items:start;margin-top:18px}
+.panel{background:#262a41;border:1px solid #4a4760;border-radius:16px;padding:18px;box-shadow:0 12px 28px #080b1940}
+.panel h2{margin:0 0 4px;font:500 20px Georgia,"Noto Serif TC",serif;color:#f3e7d4}
+.panel p.hint{margin:0 0 14px;font-size:12px;line-height:1.7;color:#c3bbce}
+fieldset{border:1px solid #4e5675;border-radius:12px;margin:0 0 14px;padding:12px 13px;background:#222639}
+legend{font-size:11px;letter-spacing:2px;color:var(--gold);padding:0 6px}
+label{display:block;font-size:12px;color:#d6cbd1;margin:8px 0 3px}
+input[type=text],input[type=number],select,textarea{width:100%;background:#191c2b;color:#f0e7d8;border:1px solid #555c7d;border-radius:9px;padding:8px 9px;font-size:13px}
+textarea{min-height:58px;resize:vertical;line-height:1.6}
+input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid #f2ca78;outline-offset:1px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.row>*{flex:1 1 120px}
+button.btn{border:1px solid #6f697a;background:#353952;color:#f0e6d5;border-radius:11px;padding:9px 13px;font-size:12px}
+button.btn:hover{background:#41466180}
+button.btn.primary{background:var(--gold);border-color:var(--gold);color:#2a2632;font-weight:700}
+button.btn.ghost{background:transparent}
+button.btn:disabled{opacity:.4;cursor:not-allowed}
+.status{border-radius:11px;padding:10px 12px;font-size:12px;line-height:1.7;margin-bottom:12px;background:#1e2233;border:1px solid #4a4760;color:#d8cfdd}
+.status.is-ok{border-color:#3f9d6d;color:#bfe7d2}
+.status.is-bad{border-color:var(--bad);color:#f2c3bd}
+.status.is-warn{border-color:#c08a3e;color:#f0d6a8}
+.status ul{margin:6px 0 0;padding-left:18px}
+.checksum{font:400 11px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;color:#c9c0d4;word-break:break-all}
+.dirty{display:inline-block;margin-left:8px;padding:3px 8px;border-radius:12px;font-size:10px;border:1px solid #c08a3e;color:#f0d6a8}
+.dirty.is-clean{border-color:#3f9d6d;color:#bfe7d2}
+.preview{border:8px solid #d4b883;border-radius:18px;background:var(--paper);color:var(--ink);overflow:hidden}
+.preview-head{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px 18px;background:#f0e3c7;border-bottom:1px solid var(--line);color:#8a6940;font-weight:700;font-size:11px;letter-spacing:1.5px}
+.preview-body{padding:20px clamp(16px,3vw,30px) 16px;background:linear-gradient(180deg,#fdf7ec,#f9f1df)}
+.preview-body h3{font:500 clamp(20px,2.4vw,26px) Georgia,"Noto Serif TC",serif;color:#2d3440;margin:6px 0 12px}
+.preview-text{font:400 15px/1.9 Georgia,"Noto Serif TC",serif;letter-spacing:.03em}
+.preview-text p{margin:0 0 12px;text-indent:2em;overflow-wrap:anywhere}
+.story-token-hint,.story-token-filled{font-weight:700;padding:1px .16em;margin:0 .04em;border-radius:4px}
+.story-token-hint{background:#fff0cf;border-bottom:2px dashed #c78934;color:#995618}
+.story-token-filled{background:#e6eefb;border-bottom:2px solid #7695cb;color:#254a81}
+.stage{position:relative;aspect-ratio:4/3;width:100%;overflow:hidden;background:#1c2541;isolation:isolate}
+.scene-background{display:block;width:100%;height:100%;position:absolute;inset:0;object-fit:fill;z-index:0}
+.stage-actors{position:absolute;inset:0;z-index:2}
+.slot-box{position:absolute;border:2px dashed #ffe1a7a1;border-radius:14px;display:flex;align-items:center;justify-content:center;overflow:visible}
+.slot-box.is-empty span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max-content;max-width:min(190%,240px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:#17233cbf;color:#fff3d4;border-radius:16px;font-size:11px;padding:5px 9px}
+.slot-box.is-filled{border-color:#ffffff40;background:none}
+.slot-box img{display:block;width:100%;height:100%;object-fit:contain}
+.preview-foot{display:flex;gap:10px;align-items:center;padding:11px 18px;background:#f0e3ca;color:#8a6244;font-size:12px;flex-wrap:wrap}
+.part{border:1px dashed #555c7d;border-radius:10px;padding:9px;margin-bottom:9px}
+.part .part-label{font-size:10px;letter-spacing:1.5px;color:#a99fc0;margin-bottom:5px}
+.slotrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.variant-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:8px;align-items:center;margin-bottom:7px}
+.variant-row label{margin:0}
+.variant-preview{width:44px;height:46px;object-fit:contain;background:#191c2b;border:1px solid #4e5675;border-radius:8px}
+.list-note{font-size:11px;color:#a99fc0;line-height:1.6;margin:6px 0 0}
+.list-note.is-ok{color:#bfe7d2}
+.list-note.is-warn{color:#f0d6a8}
+.rights-row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1.6fr) auto;gap:8px;align-items:center;padding:5px 0;border-bottom:1px solid #343a55;font-size:11px;line-height:1.5}
+.rights-row:last-child{border-bottom:0}
+.rights-name{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#ded4e4;overflow-wrap:anywhere}
+.rights-detail{color:#a99fc0;overflow-wrap:anywhere}
+.rights-badge{border:1px solid #555c7d;border-radius:10px;padding:1px 8px;font-size:10px;white-space:nowrap;color:#c9c0d4}
+.rights-row.rights-pending .rights-badge{border-color:#c08a3e;color:#f0d6a8}
+.rights-row.rights-rejected .rights-badge{border-color:#c4574f;color:#f2c3bd}
+.rights-row.rights-approved .rights-badge{border-color:#3f9d6d;color:#bfe7d2}
+@media(max-width:980px){.layout{grid-template-columns:1fr}}

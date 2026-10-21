@@ -1,0 +1,102 @@
+---
+---
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="本機製書編輯器：匯入 Book Package、編輯、即時預覽、匯出。">
+  <title>本機製書編輯器｜Book Package Authoring</title>
+  <link rel="stylesheet" href="./src/editor/editor.css?v={{ site.github.build_revision }}">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div>
+        <span class="tag">LOCAL AUTHORING TOOL · V1 PILOT</span>
+        <h1>本機製書編輯器</h1>
+        <small>BOOK PACKAGE IMPORTER · WYSIWYG · EXPORT</small>
+      </div>
+      <div class="row">
+        <button id="importButton" class="btn" type="button">匯入封包（JSON／ZIP）</button>
+        <button id="exportJson" class="btn" type="button">匯出 JSON</button>
+        <button id="exportZip" class="btn primary" type="button">匯出 ZIP</button>
+        <button id="resetButton" class="btn ghost" type="button">還原匯入內容</button>
+      </div>
+      <input id="importInput" type="file" accept=".json,.zip,application/json,application/zip" hidden>
+    </header>
+
+    <div class="layout">
+      <section class="panel">
+        <h2 id="bookTitle">尚未載入封包</h2>
+        <p class="hint" id="rights"></p>
+        <div id="status" class="status">等待載入…</div>
+
+        <fieldset>
+          <legend>出版審核（rights gate）</legend>
+          <p class="list-note" id="publicationState"></p>
+          <div id="rightsTable"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>頁面</legend>
+          <label for="pageSelect">選擇頁面</label>
+          <select id="pageSelect"></select>
+        </fieldset>
+
+        <fieldset>
+          <legend>放置框（slot frame）與提示</legend>
+          <div id="slotFields"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>頁面提示詞與段落</legend>
+          <div id="paragraphFields"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>貼紙變體（variant）</legend>
+          <p class="list-note">切換某個 role 對應的 SVG 素材；預覽會立即反映變更。</p>
+          <div id="variantFields"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>匯出紀錄</legend>
+          <p class="list-note">編輯器不會寫入 GitHub Pages，也不會呼叫任何外部 API。</p>
+          <div id="checksum" class="checksum">尚未匯出。</div>
+          <p class="list-note"><span id="dirtyFlag" class="dirty is-clean">與匯出檔一致</span></p>
+        </fieldset>
+      </section>
+
+      <section class="preview">
+        <div class="preview-head">
+          <span>即時預覽</span>
+          <span id="previewEvent"></span>
+        </div>
+        <div class="preview-body">
+          <div class="tag" id="previewKicker"></div>
+          <h3 id="previewTitle"></h3>
+          <div id="previewText" class="preview-text"></div>
+          <div class="stage" aria-label="場景預覽">
+            <img id="previewScene" class="scene-background" alt="">
+            <div id="stageActors" class="stage-actors"></div>
+          </div>
+        </div>
+        <div class="preview-foot">
+          <span>編輯器預覽使用自動放置的示範組合，重點在版面與素材變體是否正確。</span>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="./src/shared/json-schema.js"></script>
+  <script src="./src/shared/book-validator.js"></script>
+  <script src="./src/shared/asset-safety.js"></script>
+  <script src="./src/core/rule-evaluator.js"></script>
+  <script src="./src/core/variant-resolver.js"></script>
+  <script src="./src/core/state-machine.js"></script>
+  <script src="./src/player/narrative-renderer.js"></script>
+  <script src="./src/editor/zip.js"></script>
+  <script src="./src/editor/editor.js"></script>
+</body>
+</html>
